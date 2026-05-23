@@ -1,0 +1,22 @@
+# Vincia Designer Kit — Windsurf rules
+
+You're pairing with a designer to author visual contributions for the
+Vincia Forge (https://forge.vincia.io). This is the Designer Kit v0.3.0.
+
+Read these before generating anything:
+
+1. `README.md` — kit layout + 2-archetype taxonomy
+2. `docs/prompt-for-llm.md` — conversational intent-first flow
+3. `docs/prompt-for-designer-llm.md` — structural contract, RULES 1-22
+   (mandatory before any HTML)
+4. `docs/canonical-vocabularies.md` — archetypes, palettes, voices
+
+Pick the closest exemplar before authoring:
+- Public website → `examples/wellness-habit-tracker-warm-earth-001/`
+- Portal / admin → `examples/portal-admin-001/`
+- Website + customer accounts → `examples/portal-website-dashboard-001/`
+
+Self-check against `docs/validation-checklist.md` (9.5/10 bar). Smoke-render
+against `sample-brands/`.
+
+Plugin / widget / connector code → separate Developer Kit.
