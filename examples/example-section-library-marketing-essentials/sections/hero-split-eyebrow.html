@@ -1,0 +1,101 @@
+<!--
+  Hero — Split with eyebrow
+  ─────────────────────────────────────────────────────────────────────
+  Drop this section into a website page. The structural data-attributes
+  (data-vincia-section-type, data-slot-role) let Vincia's parser
+  convert this HTML into editable widgets at registration time. Every
+  text node uses a {{SLOT}} placeholder; every photo uses {{photo:slot}}.
+  CSS is token-driven via var(--brand) etc. — drops into any theme.
+-->
+<section data-vincia-section-type="hero"
+         data-vincia-section-id="hero-split-eyebrow"
+         class="vp-section vp-hero vp-hero--split">
+  <div class="vp-container">
+    <div class="vp-hero__copy">
+      <p data-slot-role="eyebrow" class="vp-eyebrow">{{HERO_EYEBROW}}</p>
+      <h1 data-slot-role="heading-display" class="vp-display-1">{{HERO_HEADLINE}}</h1>
+      <p data-slot-role="lede" class="vp-lede">{{HERO_LEDE}}</p>
+      <div class="vp-hero__ctas">
+        <a data-slot-role="cta-primary"
+           href="#"
+           class="vp-btn vp-btn--primary">{{HERO_CTA_PRIMARY}}</a>
+        <a data-slot-role="cta-secondary"
+           href="#"
+           class="vp-btn vp-btn--ghost">{{HERO_CTA_SECONDARY}}</a>
+      </div>
+    </div>
+    <figure class="vp-hero__media">
+      <img src="{{photo:hero-image}}"
+           alt="{{HERO_IMAGE_ALT}}"
+           loading="eager"
+           width="800"
+           height="500" />
+    </figure>
+  </div>
+</section>
+
+<style>
+  /* All styling resolves through theme tokens — no hardcoded colours
+   * outside :root. Section ships with its own CSS so it can be dropped
+   * into any host page without bringing kit-wide CSS along. */
+  .vp-hero { padding: var(--section-y) 0; background: var(--bg); }
+  .vp-hero .vp-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(24px, 5vw, 64px);
+    align-items: center;
+  }
+  @media (max-width: 720px) {
+    .vp-hero .vp-container { grid-template-columns: 1fr; }
+  }
+  .vp-eyebrow {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 12px;
+    color: var(--brand);
+    margin: 0 0 var(--space-md);
+  }
+  .vp-display-1 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: var(--lh-heading);
+    color: var(--ink);
+    margin: 0 0 var(--space-lg);
+  }
+  .vp-lede {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: var(--lh-body);
+    color: var(--ink-soft);
+    margin: 0 0 var(--space-xl);
+    max-width: 560px;
+  }
+  .vp-hero__ctas { display: flex; gap: var(--space-md); flex-wrap: wrap; }
+  .vp-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    border-radius: var(--r-md);
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform var(--motion-fast) var(--ease-out);
+  }
+  .vp-btn:hover { transform: translateY(-1px); }
+  .vp-btn--primary { background: var(--brand); color: var(--ink-on-brand); }
+  .vp-btn--ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line-strong);
+  }
+  .vp-hero__media img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-lg);
+  }
+</style>

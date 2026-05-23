@@ -1,0 +1,51 @@
+<!--
+  CTA — Centered banner
+  ─────────────────────────────────────────────────────────────────────
+  Full-bleed banner with headline + lede + single CTA, all centered.
+  Use as the second-to-last section before the footer. Brand-coloured
+  surface to draw the eye after the rest of the page has set context.
+-->
+<section data-vincia-section-type="cta"
+         data-vincia-section-id="cta-banner-centered"
+         data-section-darksurface="true"
+         class="vp-section vp-cta">
+  <div class="vp-container">
+    <h2 data-slot-role="heading-display" class="vp-cta__headline">{{CTA_BANNER_HEADLINE}}</h2>
+    <p data-slot-role="lede" class="vp-cta__lede">{{CTA_BANNER_LEDE}}</p>
+    <a data-slot-role="cta-primary"
+       href="#"
+       class="vp-btn vp-btn--primary vp-btn--lg">{{CTA_BANNER_PRIMARY}}</a>
+  </div>
+</section>
+
+<style>
+  .vp-cta {
+    padding: var(--section-y) var(--space-lg);
+    background: var(--brand);
+    color: var(--ink-on-brand);
+    text-align: center;
+  }
+  .vp-cta .vp-container { max-width: 720px; margin: 0 auto; }
+  .vp-cta__headline {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: var(--lh-heading);
+    color: var(--ink-on-brand);
+    margin: 0 0 var(--space-md);
+  }
+  .vp-cta__lede {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: var(--lh-body);
+    color: var(--ink-on-brand);
+    opacity: 0.85;
+    margin: 0 0 var(--space-xl);
+  }
+  /* The CTA banner inverts surface; primary CTA inverts back so the
+   * button reads against the brand-coloured background. */
+  .vp-cta .vp-btn--primary {
+    background: var(--surface);
+    color: var(--ink);
+  }
+  .vp-btn--lg { padding: 16px 32px; font-size: 17px; }
+</style>

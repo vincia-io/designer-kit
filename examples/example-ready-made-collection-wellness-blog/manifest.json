@@ -1,0 +1,18 @@
+{
+  "id": "vincia/ready-made-collection-wellness-blog",
+  "version": "0.1.0",
+  "tier": "ready-made-collection",
+  "name": "Wellness blog seed",
+  "description": "A starter blog collection for wellness brands — 10 sample posts on habit-building, sleep, focus, and mindfulness. Includes the post schema plus realistic-feeling content. Drop into any website-archetype build that needs a /blog or /journal surface ready to go.",
+  "platform_contract_version": "^1.0",
+  "collection_slug": "blog_posts",
+  "schema_file": "schema.json",
+  "rows_file": "rows.json",
+  "row_count": 10,
+  "compatibleWith": {
+    "archetype": ["website"],
+    "industries": ["wellness", "lifestyle", "newsletter", "habit-tracker"],
+    "voice": ["wellness-calm", "warm-friendly", "editorial-formal"]
+  },
+  "monetization": "free"
+}

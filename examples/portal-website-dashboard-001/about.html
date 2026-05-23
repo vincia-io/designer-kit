@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{BRAND_NAME}} — {{ABOUT_HEADLINE}}</title>
+  <meta name="description" content="{{ABOUT_LEDE}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section data-vincia-section-type="nav-primary" class="site-header">
+    <div class="inner">
+      <a class="brand-mark" href="/" data-slot-role="nav-label">{{BRAND_NAME}}</a>
+      <nav data-vincia-nav="primary" class="nav-anchors">
+        <a data-vincia-nav-item="product" href="index.html#features" data-slot-role="nav-label">{{NAV_PRODUCT}}</a>
+        <a data-vincia-nav-item="pricing" href="index.html#pricing" data-slot-role="nav-label">{{NAV_PRICING}}</a>
+        <a data-vincia-nav-item="docs" href="index.html#docs" data-slot-role="nav-label">{{NAV_DOCS}}</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn ghost sm" href="login.html" data-slot-role="cta-ghost">{{NAV_SIGN_IN}}</a>
+        <a class="btn primary sm" href="signup.html" data-slot-role="cta-primary">{{NAV_GET_STARTED}}</a>
+      </div>
+    </div>
+  </section>
+
+  <section data-vincia-section-type="hero" class="hero">
+    <div class="container-narrow">
+      <h1 class="h1" data-slot-role="heading-display">{{ABOUT_HEADLINE}}</h1>
+      <p class="lede" style="margin-top: var(--space-4)" data-slot-role="lede">{{ABOUT_LEDE}}</p>
+    </div>
+  </section>
+
+  <section data-vincia-section-type="story-narrative" class="features-band">
+    <div class="container-narrow">
+      <p data-slot-role="long-form">{{ABOUT_STORY_BODY}}</p>
+    </div>
+  </section>
+
+  <section data-vincia-section-type="site-footer" class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-block">
+          <span class="brand-mark" data-slot-role="nav-label">{{BRAND_NAME}}</span>
+          <p class="tagline" data-slot-role="footer-tagline">{{FOOTER_TAGLINE}}</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <nav data-vincia-nav="footer">
+            <ul>
+              <li><a data-vincia-nav-item="footer-about" href="about.html" data-slot-role="footer-link-label">{{FOOTER_NAV_ABOUT}}</a></li>
+              <li><a data-vincia-nav-item="footer-contact" href="contact.html" data-slot-role="footer-link-label">{{FOOTER_NAV_CONTACT}}</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom" data-slot-role="footer-copyright">{{FOOTER_COPYRIGHT}}</div>
+    </div>
+  </section>
+  <script src="preview-inline.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,912 @@
+{
+  "id": "portal-website-dashboard-001",
+  "schemaVersion": 2,
+  "format": "html",
+  "archetype": "portal-website-dashboard",
+  "buildType": "website",
+  "designDirection": "Modern SaaS portal — marketing landing pairs a calm light-cream brand surface with structured serif/sans hierarchy; dashboard switches to dense data-driven grid with sidebar nav, KPI tiles, sortable activity table, and accessible modal/toast primitives. Corporate-blue palette with amber accent for emphasis only.",
+  "qualityScore": 9.5,
+  "designedBy": "Claude Sonnet 4.6 (exemplar) + reviewed by Vincia team",
+  "createdAt": "2026-05-07",
+  "visibility": "public",
+  "referenceInspiration": [
+    "https://linear.app",
+    "https://vercel.com",
+    "https://stripe.com/dashboard"
+  ],
+  "signature": {
+    "vibe": [
+      "data-driven",
+      "modern",
+      "trustworthy",
+      "clean"
+    ],
+    "density": "compact",
+    "displayScale": "default",
+    "paletteFamily": "corporate-blue",
+    "voice": "data-driven-confident",
+    "motionLevel": "subtle",
+    "industries": [
+      "b2b-saas",
+      "analytics",
+      "developer-tools",
+      "fintech",
+      "internal-portal"
+    ]
+  },
+  "pages": [
+    {
+      "file": "index.html",
+      "role": "home"
+    },
+    {
+      "file": "about.html",
+      "role": "about"
+    },
+    {
+      "file": "contact.html",
+      "role": "contact"
+    },
+    {
+      "file": "login.html",
+      "role": "login"
+    },
+    {
+      "file": "signup.html",
+      "role": "signup"
+    },
+    {
+      "file": "dashboard.html",
+      "role": "dashboard"
+    },
+    {
+      "file": "account.html",
+      "role": "account"
+    },
+    {
+      "file": "billing.html",
+      "role": "billing"
+    }
+  ],
+  "fonts": [
+    "https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+  ],
+  "themeVars": {
+    "colors": [
+      "--brand",
+      "--accent",
+      "--secondary",
+      "--ink",
+      "--ink-soft",
+      "--mute",
+      "--bg",
+      "--surface",
+      "--surface-alt",
+      "--surface-sunken",
+      "--line",
+      "--line-strong",
+      "--ink-on-brand",
+      "--ink-deep",
+      "--success",
+      "--warning",
+      "--danger"
+    ],
+    "fonts": [
+      "--font-display",
+      "--font-body",
+      "--font-mono"
+    ]
+  },
+  "copySlots": [
+    {
+      "slot": "BRAND_NAME",
+      "type": "label",
+      "maxWords": 2,
+      "guidance": "Wordmark — short brand name."
+    },
+    {
+      "slot": "NAV_PRODUCT",
+      "type": "label",
+      "maxWords": 2,
+      "guidance": "Top-nav 'Product' label."
+    },
+    {
+      "slot": "NAV_PRICING",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "NAV_DOCS",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "NAV_CHANGELOG",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "NAV_SIGN_IN",
+      "type": "cta",
+      "maxWords": 3
+    },
+    {
+      "slot": "NAV_GET_STARTED",
+      "type": "cta",
+      "maxWords": 3
+    },
+    {
+      "slot": "HERO_RELEASE_TAG",
+      "type": "label",
+      "maxWords": 6,
+      "guidance": "Release pill above eyebrow — e.g. 'New: built-in alerting' or 'v2.0 ships today'."
+    },
+    {
+      "slot": "HERO_EYEBROW",
+      "type": "eyebrow",
+      "maxWords": 5,
+      "guidance": "Tiny pre-headline tag."
+    },
+    {
+      "slot": "HERO_HEADLINE",
+      "type": "headline",
+      "maxWords": 10,
+      "guidance": "Bold value-prop H1."
+    },
+    {
+      "slot": "HERO_LEDE",
+      "type": "subhead",
+      "maxWords": 32,
+      "guidance": "1-2 sentences, who it's for, what it does."
+    },
+    {
+      "slot": "HERO_CTA_PRIMARY",
+      "type": "cta",
+      "maxWords": 4
+    },
+    {
+      "slot": "HERO_CTA_SECONDARY",
+      "type": "cta",
+      "maxWords": 4
+    },
+    {
+      "slot": "HERO_PRICE_ASIDE",
+      "type": "label",
+      "maxWords": 5,
+      "guidance": "Tiny aside next to CTAs — '14-day trial, no card'."
+    },
+    {
+      "slot": "HERO_TRUST_1",
+      "type": "label",
+      "maxWords": 4,
+      "guidance": "First trust pellet, e.g. 'SOC 2 Type II'"
+    },
+    {
+      "slot": "HERO_TRUST_2",
+      "type": "label",
+      "maxWords": 4,
+      "guidance": "Second trust pellet, e.g. 'GDPR ready'"
+    },
+    {
+      "slot": "HERO_TRUST_3",
+      "type": "label",
+      "maxWords": 6,
+      "guidance": "Third trust pellet, e.g. '14-day trial'"
+    },
+    {
+      "slot": "HERO_PRODUCT_SHOT_ALT",
+      "type": "alt-text",
+      "maxWords": 12
+    },
+    {
+      "slot": "STATS_LABEL_1",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "STATS_VALUE_1",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "STATS_DELTA_1",
+      "type": "label",
+      "maxWords": 4,
+      "guidance": "Quarterly delta, e.g. '+12% qoq' or '+220 this week'."
+    },
+    {
+      "slot": "STATS_LABEL_2",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "STATS_VALUE_2",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "STATS_DELTA_2",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "STATS_LABEL_3",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "STATS_VALUE_3",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "STATS_DELTA_3",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "STATS_LABEL_4",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "STATS_VALUE_4",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "STATS_DELTA_4",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "FEATURES_EYEBROW",
+      "type": "eyebrow",
+      "maxWords": 3
+    },
+    {
+      "slot": "FEATURES_H2",
+      "type": "headline",
+      "maxWords": 10
+    },
+    {
+      "slot": "FEATURES_LEDE",
+      "type": "subhead",
+      "maxWords": 28
+    },
+    {
+      "slot": "FEATURE_1_KICKER",
+      "type": "label",
+      "maxWords": 3,
+      "guidance": "Small kicker above the heading — 'PERFORMANCE', 'SECURITY', etc."
+    },
+    {
+      "slot": "FEATURE_1_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "FEATURE_1_SUB",
+      "type": "card-body",
+      "maxWords": 24
+    },
+    {
+      "slot": "FEATURE_2_KICKER",
+      "type": "label",
+      "maxWords": 3
+    },
+    {
+      "slot": "FEATURE_2_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "FEATURE_2_SUB",
+      "type": "card-body",
+      "maxWords": 24
+    },
+    {
+      "slot": "FEATURE_3_KICKER",
+      "type": "label",
+      "maxWords": 3
+    },
+    {
+      "slot": "FEATURE_3_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "FEATURE_3_SUB",
+      "type": "card-body",
+      "maxWords": 24
+    },
+    {
+      "slot": "FEATURE_4_KICKER",
+      "type": "label",
+      "maxWords": 3
+    },
+    {
+      "slot": "FEATURE_4_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "FEATURE_4_SUB",
+      "type": "card-body",
+      "maxWords": 24
+    },
+    {
+      "slot": "CTA_BAND_HEADLINE",
+      "type": "headline",
+      "maxWords": 10
+    },
+    {
+      "slot": "CTA_BAND_LEDE",
+      "type": "subhead",
+      "maxWords": 24
+    },
+    {
+      "slot": "CTA_BAND_BUTTON",
+      "type": "cta",
+      "maxWords": 4
+    },
+    {
+      "slot": "FOOTER_TAGLINE",
+      "type": "label",
+      "maxWords": 8
+    },
+    {
+      "slot": "FOOTER_COPYRIGHT",
+      "type": "label",
+      "maxWords": 6
+    },
+    {
+      "slot": "FOOTER_NAV_PRODUCT",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "FOOTER_NAV_PRICING",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "FOOTER_NAV_DOCS",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "FOOTER_NAV_BLOG",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "FOOTER_NAV_ABOUT",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "FOOTER_NAV_CAREERS",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "FOOTER_NAV_CONTACT",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "ABOUT_HEADLINE",
+      "type": "headline",
+      "maxWords": 10
+    },
+    {
+      "slot": "ABOUT_LEDE",
+      "type": "subhead",
+      "maxWords": 32
+    },
+    {
+      "slot": "ABOUT_STORY_BODY",
+      "type": "long-form",
+      "maxWords": 200
+    },
+    {
+      "slot": "CONTACT_HEADLINE",
+      "type": "headline",
+      "maxWords": 8
+    },
+    {
+      "slot": "CONTACT_LEDE",
+      "type": "subhead",
+      "maxWords": 24
+    },
+    {
+      "slot": "CONTACT_EMAIL",
+      "type": "label",
+      "maxWords": 3
+    },
+    {
+      "slot": "CONTACT_FORM_NAME_LABEL",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "CONTACT_FORM_EMAIL_LABEL",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "CONTACT_FORM_MESSAGE_LABEL",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "CONTACT_FORM_SUBMIT",
+      "type": "cta",
+      "maxWords": 3
+    },
+    {
+      "slot": "AUTH_LOGIN_HEADLINE",
+      "type": "headline",
+      "maxWords": 6
+    },
+    {
+      "slot": "AUTH_LOGIN_LEDE",
+      "type": "subhead",
+      "maxWords": 16
+    },
+    {
+      "slot": "AUTH_LOGIN_EMAIL_LABEL",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "AUTH_LOGIN_PASSWORD_LABEL",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "AUTH_LOGIN_FORGOT",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "AUTH_LOGIN_SUBMIT",
+      "type": "cta",
+      "maxWords": 3
+    },
+    {
+      "slot": "AUTH_LOGIN_SIGNUP_HINT",
+      "type": "label",
+      "maxWords": 8
+    },
+    {
+      "slot": "AUTH_LOGIN_SIGNUP_LINK",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "AUTH_SIGNUP_HEADLINE",
+      "type": "headline",
+      "maxWords": 6
+    },
+    {
+      "slot": "AUTH_SIGNUP_LEDE",
+      "type": "subhead",
+      "maxWords": 16
+    },
+    {
+      "slot": "AUTH_SIGNUP_NAME_LABEL",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "AUTH_SIGNUP_EMAIL_LABEL",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "AUTH_SIGNUP_PASSWORD_LABEL",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "AUTH_SIGNUP_SUBMIT",
+      "type": "cta",
+      "maxWords": 3
+    },
+    {
+      "slot": "AUTH_SIGNUP_LOGIN_HINT",
+      "type": "label",
+      "maxWords": 8
+    },
+    {
+      "slot": "AUTH_SIGNUP_LOGIN_LINK",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "AUTH_SIGNUP_TERMS",
+      "type": "label",
+      "maxWords": 16
+    },
+    {
+      "slot": "DASH_GREETING",
+      "type": "headline",
+      "maxWords": 6
+    },
+    {
+      "slot": "DASH_SUBLINE",
+      "type": "subhead",
+      "maxWords": 14
+    },
+    {
+      "slot": "DASH_NEW_BUTTON",
+      "type": "cta",
+      "maxWords": 3
+    },
+    {
+      "slot": "DASH_KPI_1_LABEL",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "DASH_KPI_1_VALUE",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "DASH_KPI_1_DELTA",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "DASH_KPI_2_LABEL",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "DASH_KPI_2_VALUE",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "DASH_KPI_2_DELTA",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "DASH_KPI_3_LABEL",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "DASH_KPI_3_VALUE",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "DASH_KPI_3_DELTA",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "DASH_KPI_4_LABEL",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "DASH_KPI_4_VALUE",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "DASH_KPI_4_DELTA",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "DASH_CHART_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "DASH_CHART_SUB",
+      "type": "label",
+      "maxWords": 8
+    },
+    {
+      "slot": "DASH_TABLE_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "DASH_TABLE_TAB_ALL",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "DASH_TABLE_TAB_ACTIVE",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "DASH_TABLE_TAB_FAILED",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "DASH_TABLE_COL_NAME",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "DASH_TABLE_COL_OWNER",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "DASH_TABLE_COL_STATUS",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "DASH_TABLE_COL_UPDATED",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "DASH_TABLE_ROW_1_NAME",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "DASH_TABLE_ROW_1_OWNER",
+      "type": "label",
+      "maxWords": 3
+    },
+    {
+      "slot": "DASH_TABLE_ROW_2_NAME",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "DASH_TABLE_ROW_2_OWNER",
+      "type": "label",
+      "maxWords": 3
+    },
+    {
+      "slot": "DASH_TABLE_ROW_3_NAME",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "DASH_TABLE_ROW_3_OWNER",
+      "type": "label",
+      "maxWords": 3
+    },
+    {
+      "slot": "DASH_TABLE_ROW_4_NAME",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "DASH_TABLE_ROW_4_OWNER",
+      "type": "label",
+      "maxWords": 3
+    },
+    {
+      "slot": "DASH_TABLE_ROW_5_NAME",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "DASH_TABLE_ROW_5_OWNER",
+      "type": "label",
+      "maxWords": 3
+    },
+    {
+      "slot": "DASH_EMPTY_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "DASH_EMPTY_BODY",
+      "type": "card-body",
+      "maxWords": 18
+    },
+    {
+      "slot": "DASH_EMPTY_CTA",
+      "type": "cta",
+      "maxWords": 3
+    },
+    {
+      "slot": "MODAL_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "MODAL_BODY",
+      "type": "card-body",
+      "maxWords": 24
+    },
+    {
+      "slot": "MODAL_NAME_LABEL",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "MODAL_CONFIRM",
+      "type": "cta",
+      "maxWords": 3
+    },
+    {
+      "slot": "MODAL_CANCEL",
+      "type": "cta",
+      "maxWords": 2
+    },
+    {
+      "slot": "TOAST_TEXT",
+      "type": "label",
+      "maxWords": 8
+    },
+    {
+      "slot": "SIDEBAR_DASHBOARD",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "SIDEBAR_PROJECTS",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "SIDEBAR_REPORTS",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "SIDEBAR_INTEGRATIONS",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "SIDEBAR_TEAM",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "SIDEBAR_ACCOUNT",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "SIDEBAR_BILLING",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "SEARCH_PLACEHOLDER",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "ACCOUNT_HEADLINE",
+      "type": "headline",
+      "maxWords": 4
+    },
+    {
+      "slot": "ACCOUNT_PROFILE_HEADING",
+      "type": "card-heading",
+      "maxWords": 3
+    },
+    {
+      "slot": "ACCOUNT_NAME_LABEL",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "ACCOUNT_EMAIL_LABEL",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "ACCOUNT_TIMEZONE_LABEL",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "ACCOUNT_SAVE",
+      "type": "cta",
+      "maxWords": 3
+    },
+    {
+      "slot": "ACCOUNT_DANGER_HEADING",
+      "type": "card-heading",
+      "maxWords": 3
+    },
+    {
+      "slot": "ACCOUNT_DANGER_BODY",
+      "type": "card-body",
+      "maxWords": 24
+    },
+    {
+      "slot": "ACCOUNT_DANGER_BUTTON",
+      "type": "cta",
+      "maxWords": 3
+    },
+    {
+      "slot": "BILLING_HEADLINE",
+      "type": "headline",
+      "maxWords": 4
+    },
+    {
+      "slot": "BILLING_PLAN_HEADING",
+      "type": "card-heading",
+      "maxWords": 3
+    },
+    {
+      "slot": "BILLING_PLAN_NAME",
+      "type": "label",
+      "maxWords": 3
+    },
+    {
+      "slot": "BILLING_PLAN_PRICE",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "BILLING_USAGE_HEADING",
+      "type": "card-heading",
+      "maxWords": 3
+    },
+    {
+      "slot": "BILLING_USAGE_LABEL",
+      "type": "label",
+      "maxWords": 6
+    },
+    {
+      "slot": "BILLING_USAGE_VALUE",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "BILLING_INVOICE_HEADING",
+      "type": "card-heading",
+      "maxWords": 3
+    }
+  ],
+  "photoSlots": [
+    {
+      "slot": "hero-product-shot",
+      "tags": "product-screenshot + dashboard-ui + clean-interface + screen-mockup",
+      "aspectRatio": "16/10"
+    },
+    {
+      "slot": "about-hero",
+      "tags": "office + collaborative + warm-light + diverse-team + workspace",
+      "aspectRatio": "16/10"
+    }
+  ],
+  "insertionZones": [
+    {
+      "id": "after-features",
+      "page": "index.html",
+      "selector": "#zone-after-features",
+      "label": "After Features section"
+    },
+    {
+      "id": "before-cta",
+      "page": "index.html",
+      "selector": "#zone-before-cta",
+      "label": "Before final CTA"
+    }
+  ],
+  "allowedAdjustments": [
+    "swap corporate-blue palette for any cool-modern variant",
+    "drop stats band if no aggregate numbers available",
+    "drop chart placeholder if integration with real charting is unavailable"
+  ]
+}

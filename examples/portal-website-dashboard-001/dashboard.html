@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{BRAND_NAME}} — {{SIDEBAR_DASHBOARD}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <section data-vincia-section-type="sidebar-nav" class="sidebar">
+      <a class="brand-mark" href="index.html" data-slot-role="nav-label">{{BRAND_NAME}}</a>
+      <nav data-vincia-nav="sidebar">
+        <a data-vincia-nav-item="dashboard" href="dashboard.html" aria-current="page" data-slot-role="nav-label">⌂&nbsp;&nbsp;{{SIDEBAR_DASHBOARD}}</a>
+        <a data-vincia-nav-item="projects" href="#projects" data-slot-role="nav-label">▢&nbsp;&nbsp;{{SIDEBAR_PROJECTS}}</a>
+        <a data-vincia-nav-item="reports" href="#reports" data-slot-role="nav-label">▤&nbsp;&nbsp;{{SIDEBAR_REPORTS}}</a>
+        <a data-vincia-nav-item="integrations" href="#integrations" data-slot-role="nav-label">⌬&nbsp;&nbsp;{{SIDEBAR_INTEGRATIONS}}</a>
+        <a data-vincia-nav-item="team" href="#team" data-slot-role="nav-label">◐&nbsp;&nbsp;{{SIDEBAR_TEAM}}</a>
+      </nav>
+      <nav data-vincia-nav="sidebar" style="margin-top: var(--space-5)">
+        <a data-vincia-nav-item="account" href="account.html" data-slot-role="nav-label">⚙&nbsp;&nbsp;{{SIDEBAR_ACCOUNT}}</a>
+        <a data-vincia-nav-item="billing" href="billing.html" data-slot-role="nav-label">⌹&nbsp;&nbsp;{{SIDEBAR_BILLING}}</a>
+      </nav>
+      <div class="sidebar-footer" data-slot-role="footer-copyright">v0.1 · {{FOOTER_COPYRIGHT}}</div>
+    </section>
+
+    <div class="app-main">
+      <section data-vincia-section-type="breadcrumbs" class="app-topbar">
+        <nav data-vincia-nav="breadcrumbs" class="breadcrumb">
+          <a data-vincia-nav-item="bc-home" href="index.html" data-slot-role="nav-label">{{BRAND_NAME}}</a>
+          <span class="sep">/</span>
+          <span class="breadcrumb-current" data-slot-role="nav-label">{{SIDEBAR_DASHBOARD}}</span>
+        </nav>
+        <div class="search-input">
+          <input type="search" data-vincia-field="search" data-slot-role="placeholder" placeholder="{{SEARCH_PLACEHOLDER}}" aria-label="Search">
+        </div>
+        <div class="topbar-actions">
+          <button class="btn ghost sm" type="button" aria-label="Notifications">🔔</button>
+          <div class="avatar" aria-hidden="true">·</div>
+        </div>
+      </section>
+
+      <main class="app-content">
+        <section data-vincia-section-type="dashboard-summary" class="page-heading">
+          <div>
+            <h1 data-slot-role="heading-display">{{DASH_GREETING}}</h1>
+            <p class="sub" data-slot-role="lede">{{DASH_SUBLINE}}</p>
+          </div>
+          <button class="btn primary" type="button" data-slot-role="cta-primary">{{DASH_NEW_BUTTON}}</button>
+        </section>
+
+        <section data-vincia-section-type="dashboard-kpi-grid" class="kpi-grid">
+          <div data-vincia-list="kpis" class="kpi-grid-inner" style="display:contents">
+            <div data-vincia-list-item-template class="kpi-tile">
+              <div class="label" data-slot-role="stat-label">{{DASH_KPI_1_LABEL}}</div>
+              <div class="value" data-slot-role="stat-value">{{DASH_KPI_1_VALUE}}</div>
+              <span class="delta up" data-slot-role="stat-delta">▲ {{DASH_KPI_1_DELTA}}</span>
+            </div>
+            <div class="kpi-tile">
+              <div class="label" data-slot-role="stat-label">{{DASH_KPI_2_LABEL}}</div>
+              <div class="value" data-slot-role="stat-value">{{DASH_KPI_2_VALUE}}</div>
+              <span class="delta up" data-slot-role="stat-delta">▲ {{DASH_KPI_2_DELTA}}</span>
+            </div>
+            <div class="kpi-tile">
+              <div class="label" data-slot-role="stat-label">{{DASH_KPI_3_LABEL}}</div>
+              <div class="value" data-slot-role="stat-value">{{DASH_KPI_3_VALUE}}</div>
+              <span class="delta down" data-slot-role="stat-delta">▼ {{DASH_KPI_3_DELTA}}</span>
+            </div>
+            <div class="kpi-tile">
+              <div class="label" data-slot-role="stat-label">{{DASH_KPI_4_LABEL}}</div>
+              <div class="value" data-slot-role="stat-value">{{DASH_KPI_4_VALUE}}</div>
+              <span class="delta up" data-slot-role="stat-delta">▲ {{DASH_KPI_4_DELTA}}</span>
+            </div>
+          </div>
+        </section>
+
+        <section data-vincia-section-type="dashboard-chart-strip" class="card" style="margin-bottom: var(--space-5)">
+          <div class="card-header">
+            <div>
+              <h3 data-slot-role="heading-card">{{DASH_CHART_HEADING}}</h3>
+              <p class="card-sub" data-slot-role="meta">{{DASH_CHART_SUB}}</p>
+            </div>
+            <div class="tabs" style="margin: 0; border: 0">
+              <button type="button" aria-selected="true">7d</button>
+              <button type="button" aria-selected="false">30d</button>
+              <button type="button" aria-selected="false">90d</button>
+            </div>
+          </div>
+          <div class="chart-placeholder" aria-label="Trend chart placeholder">
+            <svg viewBox="0 0 600 240" preserveAspectRatio="none" aria-hidden="true">
+              <polyline fill="none" stroke="currentColor" stroke-width="2"
+                points="0,180 60,160 120,170 180,130 240,140 300,100 360,110 420,80 480,95 540,70 600,55"
+                style="color: var(--brand)" />
+            </svg>
+          </div>
+        </section>
+
+        <section data-vincia-section-type="dashboard-data-table" class="card">
+          <div class="card-header">
+            <h3 data-slot-role="heading-card">{{DASH_TABLE_HEADING}}</h3>
+            <button class="btn ghost sm" type="button">Export</button>
+          </div>
+          <div class="tabs" role="tablist">
+            <button type="button" aria-selected="true" role="tab" data-slot-role="nav-label">{{DASH_TABLE_TAB_ALL}}</button>
+            <button type="button" aria-selected="false" role="tab" data-slot-role="nav-label">{{DASH_TABLE_TAB_ACTIVE}}</button>
+            <button type="button" aria-selected="false" role="tab" data-slot-role="nav-label">{{DASH_TABLE_TAB_FAILED}}</button>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th data-slot-role="field-label">{{DASH_TABLE_COL_NAME}}</th>
+                <th data-slot-role="field-label">{{DASH_TABLE_COL_OWNER}}</th>
+                <th class="col-status" data-slot-role="field-label">{{DASH_TABLE_COL_STATUS}}</th>
+                <th data-slot-role="field-label">{{DASH_TABLE_COL_UPDATED}}</th>
+              </tr>
+            </thead>
+            <tbody data-vincia-list="data-rows">
+              <tr data-vincia-list-item-template>
+                <td class="row-name" data-slot-role="article-title">{{DASH_TABLE_ROW_1_NAME}}</td>
+                <td data-slot-role="meta">{{DASH_TABLE_ROW_1_OWNER}}</td>
+                <td><span class="badge success" data-slot-role="badge-text">Healthy</span></td>
+                <td class="muted" data-slot-role="meta">2h ago</td>
+              </tr>
+              <tr>
+                <td class="row-name" data-slot-role="article-title">{{DASH_TABLE_ROW_2_NAME}}</td>
+                <td data-slot-role="meta">{{DASH_TABLE_ROW_2_OWNER}}</td>
+                <td><span class="badge warning" data-slot-role="badge-text">Slow</span></td>
+                <td class="muted" data-slot-role="meta">5h ago</td>
+              </tr>
+              <tr>
+                <td class="row-name" data-slot-role="article-title">{{DASH_TABLE_ROW_3_NAME}}</td>
+                <td data-slot-role="meta">{{DASH_TABLE_ROW_3_OWNER}}</td>
+                <td><span class="badge success" data-slot-role="badge-text">Healthy</span></td>
+                <td class="muted" data-slot-role="meta">yesterday</td>
+              </tr>
+              <tr>
+                <td class="row-name" data-slot-role="article-title">{{DASH_TABLE_ROW_4_NAME}}</td>
+                <td data-slot-role="meta">{{DASH_TABLE_ROW_4_OWNER}}</td>
+                <td><span class="badge danger" data-slot-role="badge-text">Failing</span></td>
+                <td class="muted" data-slot-role="meta">2 days ago</td>
+              </tr>
+              <tr>
+                <td class="row-name" data-slot-role="article-title">{{DASH_TABLE_ROW_5_NAME}}</td>
+                <td data-slot-role="meta">{{DASH_TABLE_ROW_5_OWNER}}</td>
+                <td><span class="badge" data-slot-role="badge-text">Idle</span></td>
+                <td class="muted" data-slot-role="meta">last week</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section data-vincia-section-type="dashboard-summary" style="margin-top: var(--space-6)" hidden>
+          <div class="card state-stack">
+            <div class="icon" aria-hidden="true">📭</div>
+            <h3 data-slot-role="heading-card">{{DASH_EMPTY_HEADING}}</h3>
+            <p data-slot-role="body">{{DASH_EMPTY_BODY}}</p>
+            <button class="btn primary sm" type="button" data-slot-role="cta-primary">{{DASH_EMPTY_CTA}}</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal">
+      <h2 id="modal-title" data-slot-role="heading-card">{{MODAL_HEADING}}</h2>
+      <p data-slot-role="body">{{MODAL_BODY}}</p>
+      <div class="field">
+        <label for="modal-name" data-slot-role="field-label">{{MODAL_NAME_LABEL}}</label>
+        <input id="modal-name" type="text">
+      </div>
+      <div class="modal-actions">
+        <button class="btn ghost" type="button" data-slot-role="cta-ghost">{{MODAL_CANCEL}}</button>
+        <button class="btn primary" type="button" data-slot-role="cta-primary">{{MODAL_CONFIRM}}</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite" hidden>
+    <span data-slot-role="meta">{{TOAST_TEXT}}</span>
+  </div>
+  <script src="preview-inline.js" defer></script>
+</body>
+</html>

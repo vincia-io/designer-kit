@@ -1,0 +1,83 @@
+/* Warm Earth — Vincia theme tokens.
+ *
+ * Apply this theme to a build by selecting it in the Studio theme picker, OR
+ * import it from a design-template via the `theme` plugin reference. Token
+ * names match the convention used by the design-template HTML format
+ * (data-vincia-* attributes resolve from these CSS custom properties).
+ *
+ * Every token here is a member of `themeVars.colors` / `themeVars.fonts`
+ * surface that Vincia's per-build palette-swap pipeline can override. Do
+ * not add tokens that aren't declared in manifest.json — the importer
+ * rejects unknown vars.
+ */
+
+:root {
+  /* ---------- color ----------------------------------------------------- */
+  --brand:           oklch(72% 0.14 60);
+  --brand-soft:      oklch(80% 0.10 60);
+  --accent:          oklch(48% 0.10 70);
+  --secondary:       oklch(40% 0.08 50);
+
+  --ink:             #1c1410;
+  --ink-soft:        #3a2e25;
+  --mute:            #7a6e62;
+
+  --bg:              #fbf6ee;
+  --surface:         #fffdf8;
+  --surface-alt:     #f3eadc;
+  --surface-sunken:  #ece1cf;
+
+  --line:            rgba(28, 20, 16, 0.08);
+  --line-strong:     rgba(28, 20, 16, 0.16);
+
+  --ink-on-brand:    #1c1410;
+
+  --success:         oklch(60% 0.12 145);
+  --warning:         oklch(72% 0.16 80);
+  --danger:          oklch(58% 0.18 28);
+
+  /* ---------- typography ------------------------------------------------- */
+  --font-display:    'Source Serif 4', Georgia, serif;
+  --font-body:       'Inter', system-ui, sans-serif;
+  --font-mono:       'JetBrains Mono', 'SF Mono', Consolas, monospace;
+
+  --type-base:       16px;
+  --lh-body:         1.55;
+  --lh-heading:      1.15;
+
+  /* ---------- spacing ---------------------------------------------------- */
+  --space-xs:        4px;
+  --space-sm:        8px;
+  --space-md:        16px;
+  --space-lg:        24px;
+  --space-xl:        40px;
+  --space-2xl:       64px;
+  --space-3xl:       96px;
+  --section-y:       clamp(60px, 8vw, 120px);
+
+  /* ---------- radii ------------------------------------------------------ */
+  --r-sm:            4px;
+  --r-md:            8px;
+  --r-lg:            16px;
+  --r-pill:          999px;
+
+  /* ---------- shadows ---------------------------------------------------- */
+  --shadow-sm:       0 1px 2px rgba(28, 20, 16, 0.06);
+  --shadow-md:       0 4px 12px rgba(28, 20, 16, 0.08);
+  --shadow-lg:       0 12px 32px rgba(28, 20, 16, 0.12);
+
+  /* ---------- motion ----------------------------------------------------- */
+  --motion-fast:     150ms;
+  --motion-base:     250ms;
+  --motion-slow:     450ms;
+  --ease-out:        cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:     cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+    --motion-base: 0ms;
+    --motion-slow: 0ms;
+  }
+}

@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{BRAND_NAME}} — {{SIDEBAR_USERS}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <section data-vincia-section-type="sidebar-nav" class="sidebar">
+      <span class="brand-mark" data-slot-role="nav-label">{{BRAND_NAME}}</span>
+      <nav data-vincia-nav="sidebar">
+        <a data-vincia-nav-item="dashboard" href="dashboard.html" data-slot-role="nav-label">{{SIDEBAR_DASHBOARD}}</a>
+        <a data-vincia-nav-item="users" href="users.html" aria-current="page" data-slot-role="nav-label">{{SIDEBAR_USERS}}</a>
+        <a data-vincia-nav-item="billing" href="#billing" data-slot-role="nav-label">{{SIDEBAR_BILLING}}</a>
+        <a data-vincia-nav-item="audit" href="audit.html" data-slot-role="nav-label">{{SIDEBAR_AUDIT}}</a>
+      </nav>
+      <nav data-vincia-nav="sidebar" style="margin-top: 16px">
+        <a data-vincia-nav-item="settings" href="settings.html" data-slot-role="nav-label">{{SIDEBAR_SETTINGS}}</a>
+        <a data-vincia-nav-item="account" href="account.html" data-slot-role="nav-label">{{SIDEBAR_ACCOUNT}}</a>
+        <a data-vincia-nav-item="logout" href="#logout" data-slot-role="nav-label">{{SIDEBAR_LOGOUT}}</a>
+      </nav>
+      <div class="sidebar-footer">v0.1 · admin</div>
+    </section>
+
+    <div class="app-main">
+      <section data-vincia-section-type="breadcrumbs" class="app-topbar">
+        <nav data-vincia-nav="breadcrumbs" class="breadcrumb">
+          <a data-vincia-nav-item="bc-dash" href="dashboard.html" data-slot-role="nav-label">{{SIDEBAR_DASHBOARD}}</a>
+          <span class="sep">/</span>
+          <span class="breadcrumb-current" data-slot-role="nav-label">{{SIDEBAR_USERS}}</span>
+        </nav>
+        <div class="search-input">
+          <input type="search" data-vincia-field="search" data-slot-role="placeholder" placeholder="{{TOPBAR_SEARCH_PLACEHOLDER}}" aria-label="Search">
+        </div>
+        <div class="topbar-actions">
+          <button class="btn primary sm" type="button" data-slot-role="cta-primary">{{USERS_NEW_BUTTON}}</button>
+        </div>
+      </section>
+
+      <main class="app-content">
+        <section data-vincia-section-type="admin-users" class="page-heading">
+          <div>
+            <h1 data-slot-role="heading-display">{{USERS_HEADLINE}}</h1>
+            <p class="sub" data-slot-role="lede">{{USERS_SUBLINE}}</p>
+          </div>
+        </section>
+
+        <section data-vincia-section-type="admin-users" class="card">
+          <section data-vincia-section-type="filter-bar" class="filter-bar">
+            <div class="filter-chips" role="tablist" aria-label="Status filter">
+              <button type="button" aria-current="true" data-slot-role="nav-label">{{USERS_FILTER_ALL}}</button>
+              <button type="button" data-slot-role="nav-label">{{USERS_FILTER_ACTIVE}}</button>
+              <button type="button" data-slot-role="nav-label">{{USERS_FILTER_INVITED}}</button>
+              <button type="button" data-slot-role="nav-label">{{USERS_FILTER_SUSPENDED}}</button>
+            </div>
+            <div class="filter-spacer"></div>
+            <select data-slot-role="field-label" aria-label="{{USERS_FILTER_ROLE_LABEL}}">
+              <option>{{USERS_FILTER_ROLE_LABEL}}</option>
+              <option>Admin</option>
+              <option>Member</option>
+              <option>Read-only</option>
+            </select>
+            <select data-slot-role="field-label" aria-label="{{USERS_FILTER_PLAN_LABEL}}">
+              <option>{{USERS_FILTER_PLAN_LABEL}}</option>
+              <option>Team</option>
+              <option>Pro</option>
+              <option>Free</option>
+            </select>
+          </section>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th class="col-checkbox"><input type="checkbox" aria-label="Select all"></th>
+                <th aria-sort="ascending" data-slot-role="field-label">{{USERS_TABLE_COL_NAME}}</th>
+                <th data-slot-role="field-label">{{USERS_TABLE_COL_EMAIL}}</th>
+                <th data-slot-role="field-label">{{USERS_TABLE_COL_ROLE}}</th>
+                <th data-slot-role="field-label">{{USERS_TABLE_COL_STATUS}}</th>
+                <th data-slot-role="field-label">{{USERS_TABLE_COL_LAST_SEEN}}</th>
+                <th class="col-actions" aria-label="Actions"></th>
+              </tr>
+            </thead>
+            <tbody data-vincia-list="data-rows">
+              <tr data-vincia-list-item-template aria-selected="true">
+                <td class="col-checkbox"><input type="checkbox" checked aria-label="Select"></td>
+                <td class="row-name">Maya Chen</td>
+                <td class="col-mono">maya@team.com</td>
+                <td>Admin</td>
+                <td><span class="badge success">Active</span></td>
+                <td class="col-mono">2m ago</td>
+                <td class="col-actions">
+                  <div class="row-actions">
+                    <button type="button" aria-label="Row actions">⋯</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-checkbox"><input type="checkbox" aria-label="Select"></td>
+                <td class="row-name">Daniel Park</td>
+                <td class="col-mono">daniel@team.com</td>
+                <td>Member</td>
+                <td><span class="badge success">Active</span></td>
+                <td class="col-mono">14m ago</td>
+                <td class="col-actions">
+                  <div class="row-actions">
+                    <button type="button" aria-label="Row actions">⋯</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-checkbox"><input type="checkbox" aria-label="Select"></td>
+                <td class="row-name">Aisha Rahim</td>
+                <td class="col-mono">aisha@team.com</td>
+                <td>Admin</td>
+                <td><span class="badge success">Active</span></td>
+                <td class="col-mono">3h ago</td>
+                <td class="col-actions">
+                  <div class="row-actions" data-open="true">
+                    <button type="button" aria-label="Row actions">⋯</button>
+                    <menu>
+                      <li><button type="button">Edit details</button></li>
+                      <li><button type="button">Resend invite</button></li>
+                      <li><button type="button">Reset password</button></li>
+                      <li class="divider"></li>
+                      <li><button type="button" class="danger">Suspend</button></li>
+                    </menu>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-checkbox"><input type="checkbox" aria-label="Select"></td>
+                <td class="row-name">Marco Silva</td>
+                <td class="col-mono">marco@team.com</td>
+                <td>Member</td>
+                <td><span class="badge warning">Invited</span></td>
+                <td class="col-mono">never</td>
+                <td class="col-actions">
+                  <div class="row-actions">
+                    <button type="button" aria-label="Row actions">⋯</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-checkbox"><input type="checkbox" aria-label="Select"></td>
+                <td class="row-name">Priya Iyer</td>
+                <td class="col-mono">priya@team.com</td>
+                <td>Read-only</td>
+                <td><span class="badge danger">Suspended</span></td>
+                <td class="col-mono">2 days ago</td>
+                <td class="col-actions">
+                  <div class="row-actions">
+                    <button type="button" aria-label="Row actions">⋯</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <section data-vincia-section-type="batch-toolbar" class="batch-toolbar" role="region" aria-live="polite">
+            <span class="count">1 selected</span>
+            <span class="sep"></span>
+            <button type="button" data-slot-role="cta-secondary">{{USERS_BATCH_EXPORT}}</button>
+            <button type="button" data-slot-role="cta-secondary">{{USERS_BATCH_SUSPEND}}</button>
+            <button type="button" class="danger" data-slot-role="cta-danger">{{USERS_BATCH_DELETE}}</button>
+          </section>
+        </section>
+
+        <div class="role-gate" style="margin-top: 20px">
+          <span aria-hidden="true">⚠</span>
+          <div>
+            <strong>Restricted action.</strong>
+            <span data-slot-role="body">{{USERS_ROLE_GATE_NOTICE}}</span>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="drawer-overlay" aria-hidden="false"></div>
+  <aside class="drawer" role="dialog" aria-labelledby="drawer-title">
+    <section data-vincia-section-type="drawer-detail" class="drawer-inner">
+      <header class="drawer-header">
+        <h2 id="drawer-title" data-slot-role="heading-card">{{USERS_DRAWER_HEADING}}</h2>
+        <button class="btn ghost icon" type="button" aria-label="Close drawer">✕</button>
+      </header>
+      <div class="drawer-body">
+        <div class="drawer-section">
+          <h4>Profile</h4>
+          <div class="field"><label data-slot-role="field-label">{{USERS_TABLE_COL_NAME}}</label><input type="text" value="Aisha Rahim"></div>
+          <div class="field"><label data-slot-role="field-label">{{USERS_TABLE_COL_EMAIL}}</label><input type="email" value="aisha@team.com"></div>
+          <div class="field"><label data-slot-role="field-label">{{USERS_TABLE_COL_ROLE}}</label>
+            <select><option>Admin</option><option>Member</option><option>Read-only</option></select>
+          </div>
+        </div>
+        <div class="drawer-section">
+          <h4 data-slot-role="heading-card">{{USERS_DRAWER_RAW_HEADING}}</h4>
+          <pre class="json-viewer"><span class="json-comment">// User record</span>
+{
+  <span class="json-key">"id"</span>: <span class="json-string">"usr_4Hk29mNqQ"</span>,
+  <span class="json-key">"email"</span>: <span class="json-string">"aisha@team.com"</span>,
+  <span class="json-key">"role"</span>: <span class="json-string">"admin"</span>,
+  <span class="json-key">"status"</span>: <span class="json-string">"active"</span>,
+  <span class="json-key">"created_at"</span>: <span class="json-string">"2025-08-12T14:22:08Z"</span>,
+  <span class="json-key">"mfa_enabled"</span>: <span class="json-bool">true</span>,
+  <span class="json-key">"login_count"</span>: <span class="json-number">412</span>,
+  <span class="json-key">"deleted_at"</span>: <span class="json-null">null</span>
+}</pre>
+        </div>
+      </div>
+    </section>
+  </aside>
+</body>
+</html>

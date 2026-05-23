@@ -1,0 +1,76 @@
+{
+  "id": "vincia/theme-warm-earth",
+  "version": "0.1.0",
+  "tier": "theme",
+  "name": "Warm Earth",
+  "description": "Soft cream surfaces, warm amber brand, generous spacing — calm, domestic, trustworthy. Pairs well with serif display + clean sans body. Ideal for wellness, newsletters, hospitality, lifestyle brands.",
+  "platform_contract_version": "^1.0",
+  "tokens": {
+    "color": {
+      "brand": "oklch(72% 0.14 60)",
+      "brand-soft": "oklch(80% 0.10 60)",
+      "accent": "oklch(48% 0.10 70)",
+      "secondary": "oklch(40% 0.08 50)",
+      "ink": "#1c1410",
+      "ink-soft": "#3a2e25",
+      "mute": "#7a6e62",
+      "bg": "#fbf6ee",
+      "surface": "#fffdf8",
+      "surface-alt": "#f3eadc",
+      "surface-sunken": "#ece1cf",
+      "line": "rgba(28, 20, 16, 0.08)",
+      "line-strong": "rgba(28, 20, 16, 0.16)",
+      "ink-on-brand": "#1c1410",
+      "success": "oklch(60% 0.12 145)",
+      "warning": "oklch(72% 0.16 80)",
+      "danger": "oklch(58% 0.18 28)"
+    },
+    "typography": {
+      "fontFamilyDisplay": "'Source Serif 4', Georgia, serif",
+      "fontFamilyBody": "'Inter', system-ui, sans-serif",
+      "fontFamilyMono": "'JetBrains Mono', 'SF Mono', monospace",
+      "fontDisplayUrl": "https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap",
+      "fontBodyUrl": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap",
+      "baseSize": "16px",
+      "lineHeightBody": "1.55",
+      "lineHeightHeading": "1.15",
+      "scaleRatio": "1.5"
+    },
+    "spacing": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "16px",
+      "lg": "24px",
+      "xl": "40px",
+      "2xl": "64px",
+      "3xl": "96px",
+      "section-y": "clamp(60px, 8vw, 120px)"
+    },
+    "radii": {
+      "sm": "4px",
+      "md": "8px",
+      "lg": "16px",
+      "pill": "999px"
+    },
+    "shadows": {
+      "sm": "0 1px 2px rgba(28, 20, 16, 0.06)",
+      "md": "0 4px 12px rgba(28, 20, 16, 0.08)",
+      "lg": "0 12px 32px rgba(28, 20, 16, 0.12)"
+    },
+    "motion": {
+      "duration-fast": "150ms",
+      "duration-base": "250ms",
+      "duration-slow": "450ms",
+      "ease-out": "cubic-bezier(0.16, 1, 0.3, 1)",
+      "ease-in-out": "cubic-bezier(0.65, 0, 0.35, 1)"
+    }
+  },
+  "paletteFamily": "warm-earth-amber",
+  "supports_archetypes": ["website", "portal"],
+  "compatibleWith": {
+    "voice": ["wellness-calm", "warm-friendly", "editorial-formal"],
+    "vibe": ["calm", "warm", "domestic", "trustworthy", "editorial"],
+    "industries": ["wellness", "lifestyle", "hospitality", "newsletter", "boutique-retail"]
+  },
+  "monetization": "free"
+}

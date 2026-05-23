@@ -1,0 +1,87 @@
+{
+  "$schema": "https://vincia.io/schemas/collection-schema.v1.json",
+  "collection_slug": "blog_posts",
+  "label": "Blog posts",
+  "description": "Long-form blog/journal entries for a wellness-flavoured site.",
+  "fields": [
+    {
+      "name": "slug",
+      "label": "URL slug",
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "guidance": "lowercase, hyphenated; used in /blog/<slug>"
+    },
+    {
+      "name": "title",
+      "label": "Title",
+      "type": "string",
+      "required": true,
+      "maxLength": 140
+    },
+    {
+      "name": "excerpt",
+      "label": "Excerpt",
+      "type": "text",
+      "required": true,
+      "maxLength": 240,
+      "guidance": "1-2 sentences shown on the index page; sets up the post."
+    },
+    {
+      "name": "body",
+      "label": "Body",
+      "type": "markdown",
+      "required": true,
+      "guidance": "Full post body in Markdown. 400-1200 words typical."
+    },
+    {
+      "name": "cover_image",
+      "label": "Cover image",
+      "type": "photo-slot",
+      "required": false,
+      "guidance": "Optional. If omitted, the theme's default cover renders."
+    },
+    {
+      "name": "cover_alt",
+      "label": "Cover alt-text",
+      "type": "string",
+      "required": false,
+      "maxLength": 140
+    },
+    {
+      "name": "author",
+      "label": "Author name",
+      "type": "string",
+      "required": true,
+      "maxLength": 80
+    },
+    {
+      "name": "author_role",
+      "label": "Author role",
+      "type": "string",
+      "required": false,
+      "maxLength": 80
+    },
+    {
+      "name": "tags",
+      "label": "Tags",
+      "type": "string-array",
+      "required": false,
+      "guidance": "Free-form tags for filtering: habits, sleep, focus, mindfulness, etc."
+    },
+    {
+      "name": "published_at",
+      "label": "Published at",
+      "type": "datetime",
+      "required": true
+    },
+    {
+      "name": "reading_minutes",
+      "label": "Reading minutes",
+      "type": "number",
+      "required": false,
+      "guidance": "Estimated reading time. Computed at publish if omitted."
+    }
+  ]
+}

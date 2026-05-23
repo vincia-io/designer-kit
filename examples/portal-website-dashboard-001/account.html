@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{BRAND_NAME}} — {{ACCOUNT_HEADLINE}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <section data-vincia-section-type="sidebar-nav" class="sidebar">
+      <a class="brand-mark" href="index.html" data-slot-role="nav-label">{{BRAND_NAME}}</a>
+      <nav data-vincia-nav="sidebar">
+        <a data-vincia-nav-item="dashboard" href="dashboard.html" data-slot-role="nav-label">⌂&nbsp;&nbsp;{{SIDEBAR_DASHBOARD}}</a>
+        <a data-vincia-nav-item="projects" href="#projects" data-slot-role="nav-label">▢&nbsp;&nbsp;{{SIDEBAR_PROJECTS}}</a>
+        <a data-vincia-nav-item="reports" href="#reports" data-slot-role="nav-label">▤&nbsp;&nbsp;{{SIDEBAR_REPORTS}}</a>
+        <a data-vincia-nav-item="integrations" href="#integrations" data-slot-role="nav-label">⌬&nbsp;&nbsp;{{SIDEBAR_INTEGRATIONS}}</a>
+        <a data-vincia-nav-item="team" href="#team" data-slot-role="nav-label">◐&nbsp;&nbsp;{{SIDEBAR_TEAM}}</a>
+      </nav>
+      <nav data-vincia-nav="sidebar" style="margin-top: var(--space-5)">
+        <a data-vincia-nav-item="account" href="account.html" aria-current="page" data-slot-role="nav-label">⚙&nbsp;&nbsp;{{SIDEBAR_ACCOUNT}}</a>
+        <a data-vincia-nav-item="billing" href="billing.html" data-slot-role="nav-label">⌹&nbsp;&nbsp;{{SIDEBAR_BILLING}}</a>
+      </nav>
+      <div class="sidebar-footer" data-slot-role="footer-copyright">v0.1 · {{FOOTER_COPYRIGHT}}</div>
+    </section>
+
+    <div class="app-main">
+      <section data-vincia-section-type="breadcrumbs" class="app-topbar">
+        <nav data-vincia-nav="breadcrumbs" class="breadcrumb">
+          <a data-vincia-nav-item="bc-dash" href="dashboard.html" data-slot-role="nav-label">{{SIDEBAR_DASHBOARD}}</a>
+          <span class="sep">/</span>
+          <span class="breadcrumb-current" data-slot-role="nav-label">{{SIDEBAR_ACCOUNT}}</span>
+        </nav>
+      </section>
+      <main class="app-content">
+        <section data-vincia-section-type="account-profile" class="page-heading">
+          <h1 data-slot-role="heading-display">{{ACCOUNT_HEADLINE}}</h1>
+        </section>
+
+        <section data-vincia-section-type="account-profile" class="card" style="max-width: 640px">
+          <div class="card-header">
+            <h3 data-slot-role="heading-card">{{ACCOUNT_PROFILE_HEADING}}</h3>
+          </div>
+          <form data-vincia-form="account-profile" class="auth-form" method="post">
+            <div class="field">
+              <label for="aname" data-slot-role="field-label">{{ACCOUNT_NAME_LABEL}}</label>
+              <input id="aname" type="text" name="name" data-vincia-field="name">
+            </div>
+            <div class="field">
+              <label for="aemail" data-slot-role="field-label">{{ACCOUNT_EMAIL_LABEL}}</label>
+              <input id="aemail" type="email" name="email" data-vincia-field="email">
+            </div>
+            <div class="field">
+              <label for="atz" data-slot-role="field-label">{{ACCOUNT_TIMEZONE_LABEL}}</label>
+              <select id="atz" name="timezone" data-vincia-field="timezone">
+                <option value="utc">UTC</option>
+                <option value="local">Local</option>
+              </select>
+            </div>
+            <div>
+              <button type="submit" class="btn primary" data-slot-role="cta-primary">{{ACCOUNT_SAVE}}</button>
+            </div>
+          </form>
+        </section>
+
+        <section data-vincia-section-type="settings-form" class="card danger-zone" style="max-width: 640px; margin-top: var(--space-5)">
+          <div class="card-header">
+            <h3 data-slot-role="heading-card">{{ACCOUNT_DANGER_HEADING}}</h3>
+          </div>
+          <p class="muted" style="font-size: var(--type-small)" data-slot-role="body">{{ACCOUNT_DANGER_BODY}}</p>
+          <div style="margin-top: var(--space-4)">
+            <button type="button" class="btn danger" data-slot-role="cta-danger">{{ACCOUNT_DANGER_BUTTON}}</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="preview-inline.js" defer></script>
+</body>
+</html>

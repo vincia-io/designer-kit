@@ -1,0 +1,89 @@
+<!--
+  Features — 3-up icon grid
+  ─────────────────────────────────────────────────────────────────────
+  Three feature cards in a single row. data-vincia-list lets the parser
+  treat the cards as a repeated structure; the first card is the
+  template (data-vincia-list-item-template). Stack to one column under
+  720px. Each card uses a {{SLOT}} for headline + sub copy.
+-->
+<section data-vincia-section-type="features"
+         data-vincia-section-id="features-3-up"
+         class="vp-section vp-features">
+  <div class="vp-container">
+    <header class="vp-features__head">
+      <p data-slot-role="eyebrow" class="vp-eyebrow">{{FEATURES_EYEBROW}}</p>
+      <h2 data-slot-role="heading-display" class="vp-display-2">{{FEATURES_H2}}</h2>
+      <p data-slot-role="lede" class="vp-lede">{{FEATURES_LEDE}}</p>
+    </header>
+    <ul data-vincia-list="features-grid" class="vp-features__grid">
+      <li data-vincia-list-item-template class="vp-feature-card">
+        <p class="vp-feature-card__icon">{{FEATURE_1_ICON}}</p>
+        <h3 data-slot-role="card-heading" class="vp-card-heading">{{FEATURE_1_HEADING}}</h3>
+        <p data-slot-role="card-body" class="vp-card-body">{{FEATURE_1_SUB}}</p>
+      </li>
+      <li class="vp-feature-card">
+        <p class="vp-feature-card__icon">{{FEATURE_2_ICON}}</p>
+        <h3 data-slot-role="card-heading" class="vp-card-heading">{{FEATURE_2_HEADING}}</h3>
+        <p data-slot-role="card-body" class="vp-card-body">{{FEATURE_2_SUB}}</p>
+      </li>
+      <li class="vp-feature-card">
+        <p class="vp-feature-card__icon">{{FEATURE_3_ICON}}</p>
+        <h3 data-slot-role="card-heading" class="vp-card-heading">{{FEATURE_3_HEADING}}</h3>
+        <p data-slot-role="card-body" class="vp-card-body">{{FEATURE_3_SUB}}</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .vp-features { padding: var(--section-y) 0; background: var(--surface); }
+  .vp-features .vp-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+  }
+  .vp-features__head {
+    max-width: 720px;
+    margin: 0 auto var(--space-2xl);
+    text-align: center;
+  }
+  .vp-display-2 {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: var(--lh-heading);
+    color: var(--ink);
+    margin: 0 0 var(--space-md);
+  }
+  .vp-features__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  @media (max-width: 720px) {
+    .vp-features__grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+  }
+  .vp-feature-card {
+    background: var(--surface-alt);
+    padding: var(--space-xl);
+    border-radius: var(--r-lg);
+    border: 1px solid var(--line);
+  }
+  .vp-feature-card__icon { font-size: 32px; margin: 0 0 var(--space-md); }
+  .vp-card-heading {
+    font-family: var(--font-display);
+    font-size: 22px;
+    line-height: var(--lh-heading);
+    color: var(--ink);
+    margin: 0 0 var(--space-sm);
+  }
+  .vp-card-body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: var(--lh-body);
+    color: var(--ink-soft);
+    margin: 0;
+  }
+</style>

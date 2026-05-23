@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{BRAND_NAME}} — {{AUTH_LOGIN_HEADLINE}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="auth-shell">
+    <section data-vincia-section-type="auth-login-form" class="auth-panel">
+      <div class="auth-panel-inner">
+        <a class="brand-mark" href="index.html" data-slot-role="nav-label">{{BRAND_NAME}}</a>
+        <h1 class="h2" style="margin-top: var(--space-6)" data-slot-role="heading-display">{{AUTH_LOGIN_HEADLINE}}</h1>
+        <p class="lede" style="margin-top: var(--space-3)" data-slot-role="lede">{{AUTH_LOGIN_LEDE}}</p>
+        <form data-vincia-form="login" class="auth-form" method="post" action="/api/auth/login">
+          <div class="field">
+            <label for="email" data-slot-role="field-label">{{AUTH_LOGIN_EMAIL_LABEL}}</label>
+            <input id="email" type="email" name="email" data-vincia-field="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="password" data-slot-role="field-label">{{AUTH_LOGIN_PASSWORD_LABEL}}</label>
+            <input id="password" type="password" name="password" data-vincia-field="password" autocomplete="current-password" required>
+          </div>
+          <div class="auth-meta">
+            <span></span>
+            <a href="#reset" data-slot-role="link-label">{{AUTH_LOGIN_FORGOT}}</a>
+          </div>
+          <button type="submit" class="btn primary lg" style="width:100%" data-slot-role="cta-primary">{{AUTH_LOGIN_SUBMIT}}</button>
+          <p class="auth-meta">
+            <span data-slot-role="meta">{{AUTH_LOGIN_SIGNUP_HINT}}</span>
+            <a href="signup.html" data-slot-role="link-label">{{AUTH_LOGIN_SIGNUP_LINK}}</a>
+          </p>
+        </form>
+      </div>
+    </section>
+    <aside class="auth-aside">
+      <h2 class="h2" data-slot-role="heading-section">{{HERO_HEADLINE}}</h2>
+      <p class="lede" data-slot-role="lede">{{HERO_LEDE}}</p>
+    </aside>
+  </main>
+  <script src="preview-inline.js" defer></script>
+</body>
+</html>

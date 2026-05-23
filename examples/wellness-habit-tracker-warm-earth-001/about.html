@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About · {{NAV_BRAND}}</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+
+  <section data-vincia-section-type="nav-primary" class="site-header">
+    <div class="inner">
+      <a class="brand-mark" href="index.html" data-slot-role="nav-label">{{NAV_BRAND}}</a>
+      <nav data-vincia-nav="primary" class="nav-anchors">
+        <a data-vincia-nav-item="features" href="index.html#features" data-slot-role="nav-label">{{NAV_LINK_FEATURES}}</a>
+        <a data-vincia-nav-item="how" href="index.html#how-it-works" data-slot-role="nav-label">{{NAV_LINK_HOW}}</a>
+        <a data-vincia-nav-item="reviews" href="index.html#reviews" data-slot-role="nav-label">{{NAV_LINK_REVIEWS}}</a>
+        <a data-vincia-nav-item="contact" href="contact.html" data-slot-role="nav-label">{{NAV_LINK_CONTACT}}</a>
+      </nav>
+      <a class="btn primary" href="index.html#get-started" data-slot-role="cta-primary">{{NAV_CTA}}</a>
+    </div>
+  </section>
+
+  <section data-vincia-section-type="hero" class="page-hero">
+    <div class="container">
+      <h1 data-slot-role="heading-display">{{ABOUT_HEADLINE}}</h1>
+      <p class="lede" data-slot-role="lede">{{ABOUT_LEDE}}</p>
+    </div>
+  </section>
+
+  <section data-vincia-section-type="story-narrative" class="section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-photos">
+          <!-- preview: https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&q=85 -->
+          <img src="{{photo:team-photo-1}}" alt="{{TEAM_PHOTO_1_ALT}}">
+          <!-- preview: https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=900&q=85 -->
+          <img src="{{photo:team-photo-2}}" alt="{{TEAM_PHOTO_2_ALT}}">
+        </div>
+        <div class="story-body">
+          <h2 data-slot-role="heading-section">{{ABOUT_STORY_H2}}</h2>
+          <p data-slot-role="long-form">{{ABOUT_STORY_BODY}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-vincia-section-type="features" class="section surface-alt">
+    <div class="container">
+      <div class="values-head">
+        <h2 data-slot-role="heading-section">{{ABOUT_VALUES_H2}}</h2>
+      </div>
+      <div data-vincia-list="features" class="grid-3">
+        <div data-vincia-list-item-template class="value-card">
+          <h3 data-slot-role="feature-title">{{ABOUT_VALUE_1_HEADING}}</h3>
+          <p data-slot-role="feature-body">{{ABOUT_VALUE_1_SUB}}</p>
+        </div>
+        <div class="value-card">
+          <h3 data-slot-role="feature-title">{{ABOUT_VALUE_2_HEADING}}</h3>
+          <p data-slot-role="feature-body">{{ABOUT_VALUE_2_SUB}}</p>
+        </div>
+        <div class="value-card">
+          <h3 data-slot-role="feature-title">{{ABOUT_VALUE_3_HEADING}}</h3>
+          <p data-slot-role="feature-body">{{ABOUT_VALUE_3_SUB}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-vincia-section-type="site-footer" class="site-footer">
+    <div class="container inner">
+      <div data-slot-role="footer-tagline">{{FOOTER_TAGLINE}} · {{FOOTER_COPYRIGHT}}</div>
+      <nav data-vincia-nav="footer" class="nav-links">
+        <a data-vincia-nav-item="features" href="index.html#features" data-slot-role="footer-link-label">{{FOOTER_NAV_FEATURES}}</a>
+        <a data-vincia-nav-item="pricing" href="index.html#pricing" data-slot-role="footer-link-label">{{FOOTER_NAV_PRICING}}</a>
+        <a data-vincia-nav-item="reviews" href="index.html#reviews" data-slot-role="footer-link-label">{{FOOTER_NAV_REVIEWS}}</a>
+        <a data-vincia-nav-item="contact" href="contact.html" data-slot-role="footer-link-label">{{FOOTER_NAV_CONTACT}}</a>
+      </nav>
+    </div>
+  </section>
+
+</body>
+</html>

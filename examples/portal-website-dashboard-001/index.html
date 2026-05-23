@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{BRAND_NAME}} — {{HERO_HEADLINE}}</title>
+  <meta name="description" content="{{HERO_LEDE}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section data-vincia-section-type="nav-primary" class="site-header">
+    <div class="inner">
+      <a class="brand-mark" href="/" data-slot-role="nav-label">{{BRAND_NAME}}</a>
+      <nav data-vincia-nav="primary" class="nav-anchors">
+        <a data-vincia-nav-item="product" href="#features" data-slot-role="nav-label">{{NAV_PRODUCT}}</a>
+        <a data-vincia-nav-item="pricing" href="#pricing" data-slot-role="nav-label">{{NAV_PRICING}}</a>
+        <a data-vincia-nav-item="docs" href="#docs" data-slot-role="nav-label">{{NAV_DOCS}}</a>
+        <a data-vincia-nav-item="changelog" href="#changelog" data-slot-role="nav-label">{{NAV_CHANGELOG}}</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn ghost sm" href="login.html" data-slot-role="cta-ghost">{{NAV_SIGN_IN}}</a>
+        <a class="btn primary sm" href="signup.html" data-slot-role="cta-primary">{{NAV_GET_STARTED}}</a>
+      </div>
+    </div>
+  </section>
+
+  <section data-vincia-section-type="hero" class="hero">
+    <div class="container">
+      <div class="grid">
+        <div>
+          <a class="hero-release-tag" href="#changelog" data-slot-role="badge-text">
+            {{HERO_RELEASE_TAG}}
+            <span class="arrow">→</span>
+          </a>
+          <p class="eyebrow" data-slot-role="eyebrow">{{HERO_EYEBROW}}</p>
+          <h1 class="h1" data-slot-role="heading-display">{{HERO_HEADLINE}}</h1>
+          <p class="lede" style="margin-top: var(--space-4)" data-slot-role="lede">{{HERO_LEDE}}</p>
+          <div class="hero-cta-row">
+            <a class="btn primary lg" href="signup.html" data-slot-role="cta-primary">{{HERO_CTA_PRIMARY}}</a>
+            <a class="btn secondary lg" href="#docs" data-slot-role="cta-secondary">{{HERO_CTA_SECONDARY}}</a>
+            <span class="price-aside" data-slot-role="meta">{{HERO_PRICE_ASIDE}}</span>
+          </div>
+          <p class="hero-trust">
+            <span data-slot-role="trust-line">{{HERO_TRUST_1}}</span>
+            <span class="dot"></span>
+            <span data-slot-role="trust-line">{{HERO_TRUST_2}}</span>
+            <span class="dot"></span>
+            <span data-slot-role="trust-line">{{HERO_TRUST_3}}</span>
+          </p>
+        </div>
+        <div class="hero-product-shot">
+          <!-- preview: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=85 -->
+          <img src="{{photo:hero-product-shot}}" alt="{{HERO_PRODUCT_SHOT_ALT}}">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-vincia-section-type="stats" class="stats-band">
+    <div class="container">
+      <div data-vincia-list="stats" class="stats-grid">
+        <div data-vincia-list-item-template class="stat-item">
+          <div class="stat-value" data-slot-role="stat-value">{{STATS_VALUE_1}}</div>
+          <div class="stat-label" data-slot-role="stat-label">{{STATS_LABEL_1}}</div>
+          <div class="stat-delta" data-slot-role="stat-delta">▲ {{STATS_DELTA_1}}</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" data-slot-role="stat-value">{{STATS_VALUE_2}}</div>
+          <div class="stat-label" data-slot-role="stat-label">{{STATS_LABEL_2}}</div>
+          <div class="stat-delta" data-slot-role="stat-delta">▲ {{STATS_DELTA_2}}</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" data-slot-role="stat-value">{{STATS_VALUE_3}}</div>
+          <div class="stat-label" data-slot-role="stat-label">{{STATS_LABEL_3}}</div>
+          <div class="stat-delta" data-slot-role="stat-delta">▲ {{STATS_DELTA_3}}</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" data-slot-role="stat-value">{{STATS_VALUE_4}}</div>
+          <div class="stat-label" data-slot-role="stat-label">{{STATS_LABEL_4}}</div>
+          <div class="stat-delta" data-slot-role="stat-delta">▲ {{STATS_DELTA_4}}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-vincia-section-type="features" class="features-band" id="features">
+    <div class="container">
+      <div class="heading">
+        <p class="eyebrow" data-slot-role="eyebrow">{{FEATURES_EYEBROW}}</p>
+        <h2 class="h2" data-slot-role="heading-section">{{FEATURES_H2}}</h2>
+        <p class="lede" data-slot-role="lede">{{FEATURES_LEDE}}</p>
+      </div>
+      <div data-vincia-list="feature-cards" class="features-grid">
+        <article data-vincia-list-item-template class="feature-card">
+          <p class="kicker" data-slot-role="kicker">01 · {{FEATURE_1_KICKER}}</p>
+          <div class="icon" aria-hidden="true">⚡</div>
+          <h3 data-slot-role="feature-title">{{FEATURE_1_HEADING}}</h3>
+          <p data-slot-role="feature-body">{{FEATURE_1_SUB}}</p>
+        </article>
+        <article class="feature-card">
+          <p class="kicker" data-slot-role="kicker">02 · {{FEATURE_2_KICKER}}</p>
+          <div class="icon" aria-hidden="true">📊</div>
+          <h3 data-slot-role="feature-title">{{FEATURE_2_HEADING}}</h3>
+          <p data-slot-role="feature-body">{{FEATURE_2_SUB}}</p>
+        </article>
+        <article class="feature-card">
+          <p class="kicker" data-slot-role="kicker">03 · {{FEATURE_3_KICKER}}</p>
+          <div class="icon" aria-hidden="true">🔒</div>
+          <h3 data-slot-role="feature-title">{{FEATURE_3_HEADING}}</h3>
+          <p data-slot-role="feature-body">{{FEATURE_3_SUB}}</p>
+        </article>
+        <article class="feature-card">
+          <p class="kicker" data-slot-role="kicker">04 · {{FEATURE_4_KICKER}}</p>
+          <div class="icon" aria-hidden="true">🌐</div>
+          <h3 data-slot-role="feature-title">{{FEATURE_4_HEADING}}</h3>
+          <p data-slot-role="feature-body">{{FEATURE_4_SUB}}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div id="zone-after-features" data-vincia-insertion-zone="after-features"></div>
+
+  <div id="zone-before-cta" data-vincia-insertion-zone="before-cta"></div>
+
+  <section data-vincia-section-type="cta" class="cta-band">
+    <div class="container-narrow">
+      <h2 class="h2" data-slot-role="heading-section">{{CTA_BAND_HEADLINE}}</h2>
+      <p class="lede" data-slot-role="lede">{{CTA_BAND_LEDE}}</p>
+      <a class="btn primary lg" href="signup.html" data-slot-role="cta-primary">{{CTA_BAND_BUTTON}}</a>
+    </div>
+  </section>
+
+  <section data-vincia-section-type="site-footer" class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-block">
+          <span class="brand-mark" data-slot-role="nav-label">{{BRAND_NAME}}</span>
+          <p class="tagline" data-slot-role="footer-tagline">{{FOOTER_TAGLINE}}</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-slot-role="footer-section-heading">{{NAV_PRODUCT}}</h4>
+          <nav data-vincia-nav="footer">
+            <ul>
+              <li><a data-vincia-nav-item="footer-product" href="#features" data-slot-role="footer-link-label">{{FOOTER_NAV_PRODUCT}}</a></li>
+              <li><a data-vincia-nav-item="footer-pricing" href="#pricing" data-slot-role="footer-link-label">{{FOOTER_NAV_PRICING}}</a></li>
+              <li><a data-vincia-nav-item="footer-docs" href="#docs" data-slot-role="footer-link-label">{{FOOTER_NAV_DOCS}}</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <nav data-vincia-nav="footer">
+            <ul>
+              <li><a data-vincia-nav-item="footer-about" href="about.html" data-slot-role="footer-link-label">{{FOOTER_NAV_ABOUT}}</a></li>
+              <li><a data-vincia-nav-item="footer-blog" href="#blog" data-slot-role="footer-link-label">{{FOOTER_NAV_BLOG}}</a></li>
+              <li><a data-vincia-nav-item="footer-careers" href="#careers" data-slot-role="footer-link-label">{{FOOTER_NAV_CAREERS}}</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <nav data-vincia-nav="footer">
+            <ul>
+              <li><a data-vincia-nav-item="footer-contact" href="contact.html" data-slot-role="footer-link-label">{{FOOTER_NAV_CONTACT}}</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom" data-slot-role="footer-copyright">{{FOOTER_COPYRIGHT}}</div>
+    </div>
+  </section>
+  <script src="preview-inline.js" defer></script>
+</body>
+</html>

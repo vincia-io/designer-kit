@@ -1,0 +1,582 @@
+{
+  "id": "wellness-habit-tracker-warm-earth-001",
+  "schemaVersion": 2,
+  "format": "html",
+  "archetype": "wellness-habit-tracker",
+  "buildType": "website",
+  "designDirection": "Warm earth-tone wellness; serif display + clean sans body; calm, generous spacing; soft cream surfaces; quiet hairlines for definition.",
+  "qualityScore": 9.5,
+  "designedBy": "Claude Sonnet 4.6 (exemplar) + reviewed by Vincia team",
+  "createdAt": "2026-05-07",
+  "visibility": "public",
+  "referenceInspiration": [
+    "https://habitkit.app",
+    "https://streaks.app"
+  ],
+  "signature": {
+    "vibe": [
+      "calm",
+      "warm",
+      "domestic",
+      "trustworthy"
+    ],
+    "density": "standard",
+    "displayScale": "default",
+    "paletteFamily": "warm-earth-amber",
+    "voice": "wellness-calm",
+    "motionLevel": "subtle",
+    "industries": [
+      "wellness",
+      "habit-tracker",
+      "lifestyle-app",
+      "self-improvement",
+      "productivity"
+    ]
+  },
+  "pages": [
+    {
+      "file": "index.html",
+      "role": "home"
+    },
+    {
+      "file": "about.html",
+      "role": "about"
+    },
+    {
+      "file": "contact.html",
+      "role": "contact"
+    }
+  ],
+  "fonts": [
+    "https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+  ],
+  "themeVars": {
+    "colors": [
+      "--brand",
+      "--accent",
+      "--secondary",
+      "--ink",
+      "--mute",
+      "--bg",
+      "--surface",
+      "--surface-alt",
+      "--line",
+      "--ink-on-brand",
+      "--success",
+      "--warning",
+      "--danger"
+    ],
+    "fonts": [
+      "--font-display",
+      "--font-body"
+    ]
+  },
+  "copySlots": [
+    {
+      "slot": "NAV_BRAND",
+      "type": "label",
+      "maxWords": 3,
+      "guidance": "Brand wordmark"
+    },
+    {
+      "slot": "NAV_LINK_FEATURES",
+      "type": "label",
+      "maxWords": 2,
+      "guidance": "Top-nav link to features section"
+    },
+    {
+      "slot": "NAV_LINK_HOW",
+      "type": "label",
+      "maxWords": 3,
+      "guidance": "Top-nav link to how-it-works section"
+    },
+    {
+      "slot": "NAV_LINK_REVIEWS",
+      "type": "label",
+      "maxWords": 2,
+      "guidance": "Top-nav link to reviews/testimonials section"
+    },
+    {
+      "slot": "NAV_LINK_CONTACT",
+      "type": "label",
+      "maxWords": 2,
+      "guidance": "Top-nav link to contact page"
+    },
+    {
+      "slot": "NAV_CTA",
+      "type": "cta",
+      "maxWords": 3,
+      "guidance": "Top-right action label"
+    },
+    {
+      "slot": "CONTACT_INFO_BODY",
+      "type": "card-body",
+      "maxWords": 24,
+      "guidance": "Contact-page intro line above the form (e.g. 'Drop us a line — we usually reply within one working day.')"
+    },
+    {
+      "slot": "HERO_EYEBROW",
+      "type": "eyebrow",
+      "maxWords": 5,
+      "guidance": "Tiny pre-headline; sets tone"
+    },
+    {
+      "slot": "HERO_HEADLINE",
+      "type": "headline",
+      "maxWords": 10,
+      "guidance": "Big H1; declarative, calm, action-led"
+    },
+    {
+      "slot": "HERO_LEDE",
+      "type": "subhead",
+      "maxWords": 32,
+      "guidance": "1-2 sentences explaining what + who-for + benefit"
+    },
+    {
+      "slot": "HERO_CTA_PRIMARY",
+      "type": "cta",
+      "maxWords": 4,
+      "guidance": "Primary action label"
+    },
+    {
+      "slot": "HERO_CTA_SECONDARY",
+      "type": "cta",
+      "maxWords": 4,
+      "guidance": "Secondary action label"
+    },
+    {
+      "slot": "HERO_PILL",
+      "type": "label",
+      "maxWords": 6,
+      "guidance": "Tag-line above hero"
+    },
+    {
+      "slot": "TRUSTED_BY_LABEL",
+      "type": "label",
+      "maxWords": 8,
+      "guidance": "Social proof line"
+    },
+    {
+      "slot": "LOGO_1",
+      "type": "label",
+      "maxWords": 2,
+      "guidance": "Logo 1 wordmark"
+    },
+    {
+      "slot": "LOGO_2",
+      "type": "label",
+      "maxWords": 2,
+      "guidance": "Logo 2 wordmark"
+    },
+    {
+      "slot": "LOGO_3",
+      "type": "label",
+      "maxWords": 2,
+      "guidance": "Logo 3 wordmark"
+    },
+    {
+      "slot": "LOGO_4",
+      "type": "label",
+      "maxWords": 2,
+      "guidance": "Logo 4 wordmark"
+    },
+    {
+      "slot": "LOGO_5",
+      "type": "label",
+      "maxWords": 2,
+      "guidance": "Logo 5 wordmark"
+    },
+    {
+      "slot": "FEATURES_EYEBROW",
+      "type": "eyebrow",
+      "maxWords": 3,
+      "guidance": "Section eyebrow"
+    },
+    {
+      "slot": "FEATURES_H2",
+      "type": "headline",
+      "maxWords": 10,
+      "guidance": "Features section H2"
+    },
+    {
+      "slot": "FEATURES_LEDE",
+      "type": "subhead",
+      "maxWords": 28,
+      "guidance": "Features section subhead"
+    },
+    {
+      "slot": "FEATURE_1_HEADING",
+      "type": "card-heading",
+      "maxWords": 4,
+      "guidance": "Feature card 1 heading"
+    },
+    {
+      "slot": "FEATURE_1_SUB",
+      "type": "card-body",
+      "maxWords": 22,
+      "guidance": "Feature card 1 description"
+    },
+    {
+      "slot": "FEATURE_2_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "FEATURE_2_SUB",
+      "type": "card-body",
+      "maxWords": 22
+    },
+    {
+      "slot": "FEATURE_3_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "FEATURE_3_SUB",
+      "type": "card-body",
+      "maxWords": 22
+    },
+    {
+      "slot": "FEATURE_4_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "FEATURE_4_SUB",
+      "type": "card-body",
+      "maxWords": 22
+    },
+    {
+      "slot": "FEATURE_5_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "FEATURE_5_SUB",
+      "type": "card-body",
+      "maxWords": 22
+    },
+    {
+      "slot": "FEATURE_6_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "FEATURE_6_SUB",
+      "type": "card-body",
+      "maxWords": 22
+    },
+    {
+      "slot": "PROCESS_EYEBROW",
+      "type": "eyebrow",
+      "maxWords": 3
+    },
+    {
+      "slot": "PROCESS_H2",
+      "type": "headline",
+      "maxWords": 10
+    },
+    {
+      "slot": "STEP_1_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "STEP_1_SUB",
+      "type": "card-body",
+      "maxWords": 22
+    },
+    {
+      "slot": "STEP_2_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "STEP_2_SUB",
+      "type": "card-body",
+      "maxWords": 22
+    },
+    {
+      "slot": "STEP_3_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "STEP_3_SUB",
+      "type": "card-body",
+      "maxWords": 22
+    },
+    {
+      "slot": "TESTIMONIALS_H2",
+      "type": "headline",
+      "maxWords": 6
+    },
+    {
+      "slot": "TESTIMONIAL_1_QUOTE",
+      "type": "quote",
+      "maxWords": 28
+    },
+    {
+      "slot": "TESTIMONIAL_1_NAME",
+      "type": "label",
+      "maxWords": 3
+    },
+    {
+      "slot": "TESTIMONIAL_1_ROLE",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "TESTIMONIAL_2_QUOTE",
+      "type": "quote",
+      "maxWords": 28
+    },
+    {
+      "slot": "TESTIMONIAL_2_NAME",
+      "type": "label",
+      "maxWords": 3
+    },
+    {
+      "slot": "TESTIMONIAL_2_ROLE",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "TESTIMONIAL_3_QUOTE",
+      "type": "quote",
+      "maxWords": 28
+    },
+    {
+      "slot": "TESTIMONIAL_3_NAME",
+      "type": "label",
+      "maxWords": 3
+    },
+    {
+      "slot": "TESTIMONIAL_3_ROLE",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "TESTIMONIAL_4_QUOTE",
+      "type": "quote",
+      "maxWords": 28
+    },
+    {
+      "slot": "TESTIMONIAL_4_NAME",
+      "type": "label",
+      "maxWords": 3
+    },
+    {
+      "slot": "TESTIMONIAL_4_ROLE",
+      "type": "label",
+      "maxWords": 4
+    },
+    {
+      "slot": "CTA_BAND_HEADLINE",
+      "type": "headline",
+      "maxWords": 8
+    },
+    {
+      "slot": "CTA_BAND_LEDE",
+      "type": "subhead",
+      "maxWords": 24
+    },
+    {
+      "slot": "CTA_BAND_BUTTON",
+      "type": "cta",
+      "maxWords": 4
+    },
+    {
+      "slot": "FOOTER_TAGLINE",
+      "type": "label",
+      "maxWords": 8
+    },
+    {
+      "slot": "FOOTER_COPYRIGHT",
+      "type": "label",
+      "maxWords": 6
+    },
+    {
+      "slot": "FOOTER_NAV_FEATURES",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "FOOTER_NAV_PRICING",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "FOOTER_NAV_REVIEWS",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "FOOTER_NAV_CONTACT",
+      "type": "label",
+      "maxWords": 1
+    },
+    {
+      "slot": "ABOUT_HEADLINE",
+      "type": "headline",
+      "maxWords": 10
+    },
+    {
+      "slot": "ABOUT_LEDE",
+      "type": "subhead",
+      "maxWords": 36
+    },
+    {
+      "slot": "ABOUT_STORY_H2",
+      "type": "headline",
+      "maxWords": 6
+    },
+    {
+      "slot": "ABOUT_STORY_BODY",
+      "type": "long-form",
+      "maxWords": 200
+    },
+    {
+      "slot": "ABOUT_VALUES_H2",
+      "type": "headline",
+      "maxWords": 6
+    },
+    {
+      "slot": "ABOUT_VALUE_1_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "ABOUT_VALUE_1_SUB",
+      "type": "card-body",
+      "maxWords": 22
+    },
+    {
+      "slot": "ABOUT_VALUE_2_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "ABOUT_VALUE_2_SUB",
+      "type": "card-body",
+      "maxWords": 22
+    },
+    {
+      "slot": "ABOUT_VALUE_3_HEADING",
+      "type": "card-heading",
+      "maxWords": 4
+    },
+    {
+      "slot": "ABOUT_VALUE_3_SUB",
+      "type": "card-body",
+      "maxWords": 22
+    },
+    {
+      "slot": "CONTACT_HEADLINE",
+      "type": "headline",
+      "maxWords": 8
+    },
+    {
+      "slot": "CONTACT_LEDE",
+      "type": "subhead",
+      "maxWords": 28
+    },
+    {
+      "slot": "CONTACT_EMAIL",
+      "type": "label",
+      "maxWords": 3
+    },
+    {
+      "slot": "CONTACT_FORM_NAME_LABEL",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "CONTACT_FORM_EMAIL_LABEL",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "CONTACT_FORM_MESSAGE_LABEL",
+      "type": "label",
+      "maxWords": 2
+    },
+    {
+      "slot": "CONTACT_FORM_SUBMIT",
+      "type": "cta",
+      "maxWords": 3
+    },
+    {
+      "slot": "HERO_IMAGE_ALT",
+      "type": "alt-text",
+      "maxWords": 12
+    },
+    {
+      "slot": "MOCKUP_IMAGE_ALT",
+      "type": "alt-text",
+      "maxWords": 12
+    },
+    {
+      "slot": "TEAM_PHOTO_1_ALT",
+      "type": "alt-text",
+      "maxWords": 8
+    },
+    {
+      "slot": "TEAM_PHOTO_2_ALT",
+      "type": "alt-text",
+      "maxWords": 8
+    },
+    {
+      "slot": "CTA_PHOTO_ALT",
+      "type": "alt-text",
+      "maxWords": 8
+    }
+  ],
+  "photoSlots": [
+    {
+      "slot": "hero-image",
+      "tags": "lifestyle + warm-light + plants + indoor + calm",
+      "aspectRatio": "16/10"
+    },
+    {
+      "slot": "mockup-image",
+      "tags": "phone-mockup + app-screenshot + clean-ui",
+      "aspectRatio": "9/16"
+    },
+    {
+      "slot": "team-photo-1",
+      "tags": "portrait + warm-light + candid + diverse",
+      "aspectRatio": "1/1"
+    },
+    {
+      "slot": "team-photo-2",
+      "tags": "portrait + warm-light + candid + diverse",
+      "aspectRatio": "1/1"
+    },
+    {
+      "slot": "cta-photo",
+      "tags": "lifestyle + sunset + warm-light + outdoor + person",
+      "aspectRatio": "21/9"
+    }
+  ],
+  "insertionZones": [
+    {
+      "id": "after-features",
+      "page": "index.html",
+      "selector": "#zone-after-features",
+      "label": "After Features section"
+    },
+    {
+      "id": "before-cta",
+      "page": "index.html",
+      "selector": "#zone-before-cta",
+      "label": "Before final CTA band"
+    }
+  ],
+  "allowedAdjustments": [
+    "swap warm-earth palette for cool-sage variant",
+    "drop trusted-by-logo strip if no logos available",
+    "switch hero image to illustration if photoStyle preference is illustration"
+  ]
+}

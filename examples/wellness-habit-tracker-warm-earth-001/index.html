@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{NAV_BRAND}}</title>
+  <meta name="description" content="{{HERO_LEDE}}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ============================================================ SITE HEADER -->
+  <section data-vincia-section-type="nav-primary" class="site-header">
+    <div class="inner">
+      <a class="brand-mark" href="/" data-slot-role="nav-label">{{NAV_BRAND}}</a>
+      <nav data-vincia-nav="primary" class="nav-anchors">
+        <a data-vincia-nav-item="features" href="#features" data-slot-role="nav-label">{{NAV_LINK_FEATURES}}</a>
+        <a data-vincia-nav-item="how" href="#how-it-works" data-slot-role="nav-label">{{NAV_LINK_HOW}}</a>
+        <a data-vincia-nav-item="reviews" href="#reviews" data-slot-role="nav-label">{{NAV_LINK_REVIEWS}}</a>
+        <a data-vincia-nav-item="contact" href="contact.html" data-slot-role="nav-label">{{NAV_LINK_CONTACT}}</a>
+      </nav>
+      <a class="btn primary" href="#get-started" data-slot-role="cta-primary">{{NAV_CTA}}</a>
+    </div>
+  </section>
+
+  <!-- ============================================================ HERO -->
+  <section data-vincia-section-type="hero" class="hero">
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <span class="pill" data-slot-role="badge-text">{{HERO_PILL}}</span>
+          <span class="eyebrow" data-slot-role="eyebrow">{{HERO_EYEBROW}}</span>
+          <h1 data-slot-role="heading-display">{{HERO_HEADLINE}}</h1>
+          <p class="lede" data-slot-role="lede">{{HERO_LEDE}}</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#get-started" data-slot-role="cta-primary">{{HERO_CTA_PRIMARY}}</a>
+            <a class="btn secondary" href="#how-it-works" data-slot-role="cta-secondary">{{HERO_CTA_SECONDARY}}</a>
+          </div>
+        </div>
+        <div class="hero-image-wrap">
+          <!-- preview: https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&q=85 -->
+          <img src="{{photo:hero-image}}" alt="{{HERO_IMAGE_ALT}}">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ TRUSTED BY -->
+  <section data-vincia-section-type="logo-strip" class="trusted-by">
+    <div class="container">
+      <p class="label" data-slot-role="meta">{{TRUSTED_BY_LABEL}}</p>
+      <div data-vincia-list="logos" class="logos">
+        <span data-vincia-list-item-template data-slot-role="badge-text">{{LOGO_1}}</span>
+        <span data-slot-role="badge-text">{{LOGO_2}}</span>
+        <span data-slot-role="badge-text">{{LOGO_3}}</span>
+        <span data-slot-role="badge-text">{{LOGO_4}}</span>
+        <span data-slot-role="badge-text">{{LOGO_5}}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ FEATURES -->
+  <section data-vincia-section-type="features" class="section surface-alt" id="features">
+    <div class="container">
+      <div class="features-head">
+        <span class="eyebrow" data-slot-role="eyebrow">{{FEATURES_EYEBROW}}</span>
+        <h2 data-slot-role="heading-section">{{FEATURES_H2}}</h2>
+        <p class="lede" data-slot-role="lede">{{FEATURES_LEDE}}</p>
+      </div>
+      <div data-vincia-list="feature-cards" class="grid-3-2">
+        <article data-vincia-list-item-template class="feature-card">
+          <div class="icon" data-slot-role="feature-icon-name">⚡</div>
+          <h3 data-slot-role="feature-title">{{FEATURE_1_HEADING}}</h3>
+          <p data-slot-role="feature-body">{{FEATURE_1_SUB}}</p>
+        </article>
+        <article class="feature-card">
+          <div class="icon" data-slot-role="feature-icon-name">📊</div>
+          <h3 data-slot-role="feature-title">{{FEATURE_2_HEADING}}</h3>
+          <p data-slot-role="feature-body">{{FEATURE_2_SUB}}</p>
+        </article>
+        <article class="feature-card">
+          <div class="icon" data-slot-role="feature-icon-name">💡</div>
+          <h3 data-slot-role="feature-title">{{FEATURE_3_HEADING}}</h3>
+          <p data-slot-role="feature-body">{{FEATURE_3_SUB}}</p>
+        </article>
+        <article class="feature-card">
+          <div class="icon" data-slot-role="feature-icon-name">🔔</div>
+          <h3 data-slot-role="feature-title">{{FEATURE_4_HEADING}}</h3>
+          <p data-slot-role="feature-body">{{FEATURE_4_SUB}}</p>
+        </article>
+        <article class="feature-card">
+          <div class="icon" data-slot-role="feature-icon-name">🌙</div>
+          <h3 data-slot-role="feature-title">{{FEATURE_5_HEADING}}</h3>
+          <p data-slot-role="feature-body">{{FEATURE_5_SUB}}</p>
+        </article>
+        <article class="feature-card">
+          <div class="icon" data-slot-role="feature-icon-name">☁️</div>
+          <h3 data-slot-role="feature-title">{{FEATURE_6_HEADING}}</h3>
+          <p data-slot-role="feature-body">{{FEATURE_6_SUB}}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ INSERTION ZONE: after-features -->
+  <div id="zone-after-features" data-vincia-insertion-zone="after-features"></div>
+
+  <!-- ============================================================ PROCESS -->
+  <section data-vincia-section-type="process-steps" class="section" id="how-it-works">
+    <div class="container">
+      <div class="process-head">
+        <span class="eyebrow" data-slot-role="eyebrow">{{PROCESS_EYEBROW}}</span>
+        <h2 data-slot-role="heading-section">{{PROCESS_H2}}</h2>
+      </div>
+      <div data-vincia-list="process-steps" class="grid-3">
+        <div data-vincia-list-item-template class="step-card">
+          <div class="num" data-slot-role="step-number">1</div>
+          <h3 data-slot-role="step-title">{{STEP_1_HEADING}}</h3>
+          <p data-slot-role="step-body">{{STEP_1_SUB}}</p>
+        </div>
+        <div class="step-card">
+          <div class="num" data-slot-role="step-number">2</div>
+          <h3 data-slot-role="step-title">{{STEP_2_HEADING}}</h3>
+          <p data-slot-role="step-body">{{STEP_2_SUB}}</p>
+        </div>
+        <div class="step-card">
+          <div class="num" data-slot-role="step-number">3</div>
+          <h3 data-slot-role="step-title">{{STEP_3_HEADING}}</h3>
+          <p data-slot-role="step-body">{{STEP_3_SUB}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ TESTIMONIALS -->
+  <section data-vincia-section-type="testimonials" class="section surface-alt" id="reviews">
+    <div class="container">
+      <div class="testimonials-head">
+        <h2 data-slot-role="heading-section">{{TESTIMONIALS_H2}}</h2>
+      </div>
+      <div data-vincia-list="testimonials" class="testimonial-grid">
+        <article data-vincia-list-item-template class="testimonial">
+          <blockquote data-slot-role="quote">"{{TESTIMONIAL_1_QUOTE}}"</blockquote>
+          <p class="person"><span class="name" data-slot-role="attribution">{{TESTIMONIAL_1_NAME}}</span> · <span class="role" data-slot-role="attribution-role">{{TESTIMONIAL_1_ROLE}}</span></p>
+        </article>
+        <article class="testimonial">
+          <blockquote data-slot-role="quote">"{{TESTIMONIAL_2_QUOTE}}"</blockquote>
+          <p class="person"><span class="name" data-slot-role="attribution">{{TESTIMONIAL_2_NAME}}</span> · <span class="role" data-slot-role="attribution-role">{{TESTIMONIAL_2_ROLE}}</span></p>
+        </article>
+        <article class="testimonial">
+          <blockquote data-slot-role="quote">"{{TESTIMONIAL_3_QUOTE}}"</blockquote>
+          <p class="person"><span class="name" data-slot-role="attribution">{{TESTIMONIAL_3_NAME}}</span> · <span class="role" data-slot-role="attribution-role">{{TESTIMONIAL_3_ROLE}}</span></p>
+        </article>
+        <article class="testimonial">
+          <blockquote data-slot-role="quote">"{{TESTIMONIAL_4_QUOTE}}"</blockquote>
+          <p class="person"><span class="name" data-slot-role="attribution">{{TESTIMONIAL_4_NAME}}</span> · <span class="role" data-slot-role="attribution-role">{{TESTIMONIAL_4_ROLE}}</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ INSERTION ZONE: before-cta -->
+  <div id="zone-before-cta" data-vincia-insertion-zone="before-cta"></div>
+
+  <!-- ============================================================ CTA BAND -->
+  <section data-vincia-section-type="cta" class="cta-band" id="get-started">
+    <!-- preview: https://images.unsplash.com/photo-1488998427799-e3362cec87c3?w=1600&q=85 -->
+    <div class="bg-photo" style="background-image:url('{{photo:cta-photo}}')"></div>
+    <div class="container inner">
+      <h2 data-slot-role="heading-section">{{CTA_BAND_HEADLINE}}</h2>
+      <p class="lede" data-slot-role="lede">{{CTA_BAND_LEDE}}</p>
+      <a class="btn primary" href="#signup" data-slot-role="cta-primary">{{CTA_BAND_BUTTON}}</a>
+    </div>
+  </section>
+
+  <!-- ============================================================ FOOTER -->
+  <section data-vincia-section-type="site-footer" class="site-footer">
+    <div class="container inner">
+      <div data-slot-role="footer-tagline">{{FOOTER_TAGLINE}} · {{FOOTER_COPYRIGHT}}</div>
+      <nav data-vincia-nav="footer" class="nav-links">
+        <a data-vincia-nav-item="features" href="#features" data-slot-role="footer-link-label">{{FOOTER_NAV_FEATURES}}</a>
+        <a data-vincia-nav-item="pricing" href="#pricing" data-slot-role="footer-link-label">{{FOOTER_NAV_PRICING}}</a>
+        <a data-vincia-nav-item="reviews" href="#reviews" data-slot-role="footer-link-label">{{FOOTER_NAV_REVIEWS}}</a>
+        <a data-vincia-nav-item="contact" href="contact.html" data-slot-role="footer-link-label">{{FOOTER_NAV_CONTACT}}</a>
+      </nav>
+    </div>
+  </section>
+
+  <script src="preview-inline.js" defer></script>
+</body>
+</html>

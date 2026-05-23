@@ -1,0 +1,130 @@
+{
+  "id": "portal-admin-001",
+  "schemaVersion": 2,
+  "format": "html",
+  "archetype": "portal-admin",
+  "buildType": "portal",
+  "designDirection": "Internal admin tool — dense, monochrome with one strong accent. Sidebar nav + topbar + page-content shell, every surface optimised for repeated daily use. Primitives: filter bar (chips + search), sortable data table with batch-select toolbar, row-action kebab menu, right-side detail drawer, JSON viewer for raw payloads, role-gate banner for restricted actions, audit timeline. No marketing surface.",
+  "qualityScore": 9.5,
+  "designedBy": "Claude Sonnet 4.6 (exemplar) + reviewed by Vincia team",
+  "createdAt": "2026-05-07",
+  "visibility": "public",
+  "referenceInspiration": [
+    "https://app.linear.app",
+    "https://dashboard.stripe.com",
+    "https://supabase.com/dashboard"
+  ],
+  "signature": {
+    "vibe": ["dense", "data-driven", "modern", "monochrome"],
+    "density": "compact",
+    "displayScale": "default",
+    "paletteFamily": "high-contrast-bw",
+    "voice": "data-driven-confident",
+    "motionLevel": "subtle",
+    "industries": ["internal-admin", "developer-tools", "saas-ops", "platform"]
+  },
+  "pages": [
+    { "file": "login.html", "role": "login" },
+    { "file": "dashboard.html", "role": "dashboard" },
+    { "file": "users.html", "role": "admin" },
+    { "file": "audit.html", "role": "admin" },
+    { "file": "settings.html", "role": "settings" },
+    { "file": "account.html", "role": "account" }
+  ],
+  "fonts": [
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+  ],
+  "themeVars": {
+    "colors": [
+      "--brand", "--accent",
+      "--ink", "--ink-soft", "--mute",
+      "--bg", "--surface", "--surface-alt", "--surface-sunken",
+      "--line", "--line-strong",
+      "--ink-on-brand",
+      "--success", "--warning", "--danger", "--info",
+      "--syntax-string", "--syntax-number", "--syntax-bool", "--danger-soft"
+    ],
+    "fonts": ["--font-body", "--font-mono"]
+  },
+  "copySlots": [
+    { "slot": "BRAND_NAME", "type": "label", "maxWords": 2 },
+
+    { "slot": "AUTH_LOGIN_HEADLINE", "type": "headline", "maxWords": 6 },
+    { "slot": "AUTH_LOGIN_LEDE", "type": "subhead", "maxWords": 14 },
+    { "slot": "AUTH_LOGIN_EMAIL_LABEL", "type": "label", "maxWords": 2 },
+    { "slot": "AUTH_LOGIN_PASSWORD_LABEL", "type": "label", "maxWords": 2 },
+    { "slot": "AUTH_LOGIN_FORGOT", "type": "label", "maxWords": 4 },
+    { "slot": "AUTH_LOGIN_SUBMIT", "type": "cta", "maxWords": 3 },
+    { "slot": "AUTH_LOGIN_SSO_LABEL", "type": "cta", "maxWords": 4 },
+
+    { "slot": "SIDEBAR_DASHBOARD", "type": "label", "maxWords": 1 },
+    { "slot": "SIDEBAR_USERS", "type": "label", "maxWords": 1 },
+    { "slot": "SIDEBAR_BILLING", "type": "label", "maxWords": 1 },
+    { "slot": "SIDEBAR_AUDIT", "type": "label", "maxWords": 1 },
+    { "slot": "SIDEBAR_SETTINGS", "type": "label", "maxWords": 1 },
+    { "slot": "SIDEBAR_ACCOUNT", "type": "label", "maxWords": 1 },
+    { "slot": "SIDEBAR_LOGOUT", "type": "label", "maxWords": 1 },
+
+    { "slot": "TOPBAR_SEARCH_PLACEHOLDER", "type": "label", "maxWords": 4 },
+
+    { "slot": "DASH_GREETING", "type": "headline", "maxWords": 6 },
+    { "slot": "DASH_SUBLINE", "type": "subhead", "maxWords": 14 },
+    { "slot": "DASH_KPI_1_LABEL", "type": "label", "maxWords": 4 },
+    { "slot": "DASH_KPI_1_VALUE", "type": "label", "maxWords": 2 },
+    { "slot": "DASH_KPI_2_LABEL", "type": "label", "maxWords": 4 },
+    { "slot": "DASH_KPI_2_VALUE", "type": "label", "maxWords": 2 },
+    { "slot": "DASH_KPI_3_LABEL", "type": "label", "maxWords": 4 },
+    { "slot": "DASH_KPI_3_VALUE", "type": "label", "maxWords": 2 },
+    { "slot": "DASH_KPI_4_LABEL", "type": "label", "maxWords": 4 },
+    { "slot": "DASH_KPI_4_VALUE", "type": "label", "maxWords": 2 },
+    { "slot": "DASH_RECENT_HEADING", "type": "card-heading", "maxWords": 4 },
+
+    { "slot": "USERS_HEADLINE", "type": "headline", "maxWords": 4 },
+    { "slot": "USERS_SUBLINE", "type": "subhead", "maxWords": 14 },
+    { "slot": "USERS_NEW_BUTTON", "type": "cta", "maxWords": 3 },
+    { "slot": "USERS_FILTER_ALL", "type": "label", "maxWords": 1 },
+    { "slot": "USERS_FILTER_ACTIVE", "type": "label", "maxWords": 1 },
+    { "slot": "USERS_FILTER_INVITED", "type": "label", "maxWords": 1 },
+    { "slot": "USERS_FILTER_SUSPENDED", "type": "label", "maxWords": 1 },
+    { "slot": "USERS_FILTER_ROLE_LABEL", "type": "label", "maxWords": 2 },
+    { "slot": "USERS_FILTER_PLAN_LABEL", "type": "label", "maxWords": 2 },
+    { "slot": "USERS_TABLE_COL_NAME", "type": "label", "maxWords": 2 },
+    { "slot": "USERS_TABLE_COL_EMAIL", "type": "label", "maxWords": 2 },
+    { "slot": "USERS_TABLE_COL_ROLE", "type": "label", "maxWords": 2 },
+    { "slot": "USERS_TABLE_COL_STATUS", "type": "label", "maxWords": 2 },
+    { "slot": "USERS_TABLE_COL_LAST_SEEN", "type": "label", "maxWords": 3 },
+    { "slot": "USERS_BATCH_SUSPEND", "type": "cta", "maxWords": 2 },
+    { "slot": "USERS_BATCH_DELETE", "type": "cta", "maxWords": 2 },
+    { "slot": "USERS_BATCH_EXPORT", "type": "cta", "maxWords": 2 },
+    { "slot": "USERS_DRAWER_HEADING", "type": "card-heading", "maxWords": 3 },
+    { "slot": "USERS_DRAWER_RAW_HEADING", "type": "card-heading", "maxWords": 3 },
+    { "slot": "USERS_ROLE_GATE_NOTICE", "type": "label", "maxWords": 14 },
+
+    { "slot": "AUDIT_HEADLINE", "type": "headline", "maxWords": 4 },
+    { "slot": "AUDIT_SUBLINE", "type": "subhead", "maxWords": 14 },
+    { "slot": "AUDIT_FILTER_ALL", "type": "label", "maxWords": 1 },
+    { "slot": "AUDIT_FILTER_USER", "type": "label", "maxWords": 1 },
+    { "slot": "AUDIT_FILTER_BILLING", "type": "label", "maxWords": 1 },
+    { "slot": "AUDIT_FILTER_SECURITY", "type": "label", "maxWords": 1 },
+
+    { "slot": "SETTINGS_HEADLINE", "type": "headline", "maxWords": 3 },
+    { "slot": "SETTINGS_GENERAL_HEADING", "type": "card-heading", "maxWords": 3 },
+    { "slot": "SETTINGS_ORG_NAME_LABEL", "type": "label", "maxWords": 3 },
+    { "slot": "SETTINGS_TIMEZONE_LABEL", "type": "label", "maxWords": 2 },
+    { "slot": "SETTINGS_SAVE", "type": "cta", "maxWords": 3 },
+    { "slot": "SETTINGS_SECURITY_HEADING", "type": "card-heading", "maxWords": 3 },
+    { "slot": "SETTINGS_SECURITY_BODY", "type": "card-body", "maxWords": 24 },
+    { "slot": "SETTINGS_DANGER_HEADING", "type": "card-heading", "maxWords": 3 },
+    { "slot": "SETTINGS_DANGER_BODY", "type": "card-body", "maxWords": 24 },
+    { "slot": "SETTINGS_DANGER_BUTTON", "type": "cta", "maxWords": 4 },
+
+    { "slot": "ACCOUNT_HEADLINE", "type": "headline", "maxWords": 3 },
+    { "slot": "ACCOUNT_PROFILE_HEADING", "type": "card-heading", "maxWords": 3 },
+    { "slot": "ACCOUNT_NAME_LABEL", "type": "label", "maxWords": 2 },
+    { "slot": "ACCOUNT_EMAIL_LABEL", "type": "label", "maxWords": 2 },
+    { "slot": "ACCOUNT_SAVE", "type": "cta", "maxWords": 3 }
+  ],
+  "photoSlots": [],
+  "insertionZones": []
+}

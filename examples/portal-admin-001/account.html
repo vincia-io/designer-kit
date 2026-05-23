@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{BRAND_NAME}} — {{ACCOUNT_HEADLINE}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <section data-vincia-section-type="sidebar-nav" class="sidebar">
+      <span class="brand-mark" data-slot-role="nav-label">{{BRAND_NAME}}</span>
+      <nav data-vincia-nav="sidebar">
+        <a data-vincia-nav-item="dashboard" href="dashboard.html" data-slot-role="nav-label">{{SIDEBAR_DASHBOARD}}</a>
+        <a data-vincia-nav-item="users" href="users.html" data-slot-role="nav-label">{{SIDEBAR_USERS}}</a>
+        <a data-vincia-nav-item="billing" href="#billing" data-slot-role="nav-label">{{SIDEBAR_BILLING}}</a>
+        <a data-vincia-nav-item="audit" href="audit.html" data-slot-role="nav-label">{{SIDEBAR_AUDIT}}</a>
+      </nav>
+      <nav data-vincia-nav="sidebar" style="margin-top: 16px">
+        <a data-vincia-nav-item="settings" href="settings.html" data-slot-role="nav-label">{{SIDEBAR_SETTINGS}}</a>
+        <a data-vincia-nav-item="account" href="account.html" aria-current="page" data-slot-role="nav-label">{{SIDEBAR_ACCOUNT}}</a>
+        <a data-vincia-nav-item="logout" href="#logout" data-slot-role="nav-label">{{SIDEBAR_LOGOUT}}</a>
+      </nav>
+      <div class="sidebar-footer">v0.1 · admin</div>
+    </section>
+
+    <div class="app-main">
+      <section data-vincia-section-type="breadcrumbs" class="app-topbar">
+        <nav data-vincia-nav="breadcrumbs" class="breadcrumb">
+          <a data-vincia-nav-item="bc-dash" href="dashboard.html" data-slot-role="nav-label">{{SIDEBAR_DASHBOARD}}</a>
+          <span class="sep">/</span>
+          <span class="breadcrumb-current" data-slot-role="nav-label">{{SIDEBAR_ACCOUNT}}</span>
+        </nav>
+      </section>
+
+      <main class="app-content">
+        <section data-vincia-section-type="account-profile" class="page-heading">
+          <h1 data-slot-role="heading-display">{{ACCOUNT_HEADLINE}}</h1>
+        </section>
+
+        <section data-vincia-section-type="account-profile" class="card" style="max-width: 540px">
+          <div class="card-header">
+            <h3 data-slot-role="heading-card">{{ACCOUNT_PROFILE_HEADING}}</h3>
+          </div>
+          <div class="card-body">
+            <form data-vincia-form="account-profile" method="post" style="display: flex; flex-direction: column; gap: 16px">
+              <div class="field">
+                <label for="aname" data-slot-role="field-label">{{ACCOUNT_NAME_LABEL}}</label>
+                <input id="aname" type="text" name="name" data-vincia-field="name">
+              </div>
+              <div class="field">
+                <label for="aemail" data-slot-role="field-label">{{ACCOUNT_EMAIL_LABEL}}</label>
+                <input id="aemail" type="email" name="email" data-vincia-field="email">
+              </div>
+              <div>
+                <button type="submit" class="btn primary" data-slot-role="cta-primary">{{ACCOUNT_SAVE}}</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

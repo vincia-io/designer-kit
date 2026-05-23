@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{BRAND_NAME}} — {{AUTH_SIGNUP_HEADLINE}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="auth-shell">
+    <section data-vincia-section-type="auth-signup-form" class="auth-panel">
+      <div class="auth-panel-inner">
+        <a class="brand-mark" href="index.html" data-slot-role="nav-label">{{BRAND_NAME}}</a>
+        <h1 class="h2" style="margin-top: var(--space-6)" data-slot-role="heading-display">{{AUTH_SIGNUP_HEADLINE}}</h1>
+        <p class="lede" style="margin-top: var(--space-3)" data-slot-role="lede">{{AUTH_SIGNUP_LEDE}}</p>
+        <form data-vincia-form="signup" class="auth-form" method="post" action="/api/auth/signup">
+          <div class="field">
+            <label for="sname" data-slot-role="field-label">{{AUTH_SIGNUP_NAME_LABEL}}</label>
+            <input id="sname" type="text" name="name" data-vincia-field="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="semail" data-slot-role="field-label">{{AUTH_SIGNUP_EMAIL_LABEL}}</label>
+            <input id="semail" type="email" name="email" data-vincia-field="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="spassword" data-slot-role="field-label">{{AUTH_SIGNUP_PASSWORD_LABEL}}</label>
+            <input id="spassword" type="password" name="password" data-vincia-field="password" autocomplete="new-password" required>
+            <span class="helper" data-slot-role="helper-text">{{AUTH_SIGNUP_TERMS}}</span>
+          </div>
+          <button type="submit" class="btn primary lg" style="width:100%" data-slot-role="cta-primary">{{AUTH_SIGNUP_SUBMIT}}</button>
+          <p class="auth-meta">
+            <span data-slot-role="meta">{{AUTH_SIGNUP_LOGIN_HINT}}</span>
+            <a href="login.html" data-slot-role="link-label">{{AUTH_SIGNUP_LOGIN_LINK}}</a>
+          </p>
+        </form>
+      </div>
+    </section>
+    <aside class="auth-aside">
+      <h2 class="h2" data-slot-role="heading-section">{{CTA_BAND_HEADLINE}}</h2>
+      <p class="lede" data-slot-role="lede">{{CTA_BAND_LEDE}}</p>
+    </aside>
+  </main>
+  <script src="preview-inline.js" defer></script>
+</body>
+</html>

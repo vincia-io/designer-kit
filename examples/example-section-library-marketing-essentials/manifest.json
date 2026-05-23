@@ -1,0 +1,69 @@
+{
+  "id": "vincia/section-library-marketing-essentials",
+  "version": "0.1.0",
+  "tier": "section-library",
+  "name": "Marketing Essentials",
+  "description": "Three hard-working marketing sections every website needs: a hero with a clear value-prop, a 3-up features grid, and a call-to-action banner. Token-driven CSS — drops into any theme. Vincia's parser auto-exports these to the preset library so the Composer can pick them by name.",
+  "platform_contract_version": "^1.0",
+  "sections": [
+    {
+      "id": "hero-split-eyebrow",
+      "kind": "hero",
+      "label": "Hero — Split with eyebrow",
+      "description": "Two-column hero: eyebrow + headline + lede + primary/secondary CTA on the left; product shot or hero photo on the right. Works for SaaS landings, product launches, wellness apps.",
+      "compatibleWith": {
+        "archetype": ["website"],
+        "vibe": ["calm", "modern", "trustworthy", "data-driven", "editorial"]
+      },
+      "file": "sections/hero-split-eyebrow.html",
+      "slots": {
+        "copy": ["HERO_EYEBROW", "HERO_HEADLINE", "HERO_LEDE", "HERO_CTA_PRIMARY", "HERO_CTA_SECONDARY"],
+        "photo": ["hero-image"]
+      },
+      "exportToPresetLibrary": true
+    },
+    {
+      "id": "features-3-up",
+      "kind": "features",
+      "label": "Features — 3-up icon grid",
+      "description": "Three feature cards in a single row (stacks to one column under 720px). Each card: emoji icon + heading + 1-2 sentence body. Universal — works on any website archetype.",
+      "compatibleWith": {
+        "archetype": ["website"],
+        "vibe": ["calm", "modern", "trustworthy", "data-driven", "playful"]
+      },
+      "file": "sections/features-3-up.html",
+      "slots": {
+        "copy": [
+          "FEATURES_EYEBROW",
+          "FEATURES_H2",
+          "FEATURES_LEDE",
+          "FEATURE_1_HEADING",
+          "FEATURE_1_SUB",
+          "FEATURE_2_HEADING",
+          "FEATURE_2_SUB",
+          "FEATURE_3_HEADING",
+          "FEATURE_3_SUB"
+        ],
+        "photo": []
+      },
+      "exportToPresetLibrary": true
+    },
+    {
+      "id": "cta-banner-centered",
+      "kind": "cta",
+      "label": "CTA — Centered banner",
+      "description": "Full-bleed banner with headline, lede, and a single primary CTA, centered. Strong call to convert. Use as the second-to-last section before the footer.",
+      "compatibleWith": {
+        "archetype": ["website"],
+        "vibe": ["bold", "trustworthy", "modern", "warm"]
+      },
+      "file": "sections/cta-banner-centered.html",
+      "slots": {
+        "copy": ["CTA_BANNER_HEADLINE", "CTA_BANNER_LEDE", "CTA_BANNER_PRIMARY"],
+        "photo": []
+      },
+      "exportToPresetLibrary": true
+    }
+  ],
+  "monetization": "free"
+}

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{BRAND_NAME}} — {{SIDEBAR_DASHBOARD}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <section data-vincia-section-type="sidebar-nav" class="sidebar">
+      <span class="brand-mark" data-slot-role="nav-label">{{BRAND_NAME}}</span>
+      <nav data-vincia-nav="sidebar">
+        <a data-vincia-nav-item="dashboard" href="dashboard.html" aria-current="page" data-slot-role="nav-label">{{SIDEBAR_DASHBOARD}}</a>
+        <a data-vincia-nav-item="users" href="users.html" data-slot-role="nav-label">{{SIDEBAR_USERS}}</a>
+        <a data-vincia-nav-item="billing" href="#billing" data-slot-role="nav-label">{{SIDEBAR_BILLING}}</a>
+        <a data-vincia-nav-item="audit" href="audit.html" data-slot-role="nav-label">{{SIDEBAR_AUDIT}}</a>
+      </nav>
+      <nav data-vincia-nav="sidebar" style="margin-top: 16px">
+        <a data-vincia-nav-item="settings" href="settings.html" data-slot-role="nav-label">{{SIDEBAR_SETTINGS}}</a>
+        <a data-vincia-nav-item="account" href="account.html" data-slot-role="nav-label">{{SIDEBAR_ACCOUNT}}</a>
+        <a data-vincia-nav-item="logout" href="#logout" data-slot-role="nav-label">{{SIDEBAR_LOGOUT}}</a>
+      </nav>
+      <div class="sidebar-footer">v0.1 · admin</div>
+    </section>
+
+    <div class="app-main">
+      <section data-vincia-section-type="breadcrumbs" class="app-topbar">
+        <nav data-vincia-nav="breadcrumbs" class="breadcrumb">
+          <span class="breadcrumb-current" data-slot-role="nav-label">{{SIDEBAR_DASHBOARD}}</span>
+        </nav>
+        <div class="search-input">
+          <input type="search" data-vincia-field="search" data-slot-role="placeholder" placeholder="{{TOPBAR_SEARCH_PLACEHOLDER}}" aria-label="Search">
+        </div>
+        <div class="topbar-actions">
+          <button class="btn ghost icon" type="button" aria-label="Notifications">🔔</button>
+        </div>
+      </section>
+
+      <main class="app-content">
+        <section data-vincia-section-type="dashboard-summary" class="page-heading">
+          <div>
+            <h1 data-slot-role="heading-display">{{DASH_GREETING}}</h1>
+            <p class="sub" data-slot-role="lede">{{DASH_SUBLINE}}</p>
+          </div>
+        </section>
+
+        <section data-vincia-section-type="dashboard-kpi-grid" class="kpi-grid">
+          <div data-vincia-list="kpis" class="kpi-grid-inner" style="display:contents">
+            <div data-vincia-list-item-template class="kpi-tile">
+              <div class="label" data-slot-role="stat-label">{{DASH_KPI_1_LABEL}}</div>
+              <div class="value" data-slot-role="stat-value">{{DASH_KPI_1_VALUE}}</div>
+            </div>
+            <div class="kpi-tile">
+              <div class="label" data-slot-role="stat-label">{{DASH_KPI_2_LABEL}}</div>
+              <div class="value" data-slot-role="stat-value">{{DASH_KPI_2_VALUE}}</div>
+            </div>
+            <div class="kpi-tile">
+              <div class="label" data-slot-role="stat-label">{{DASH_KPI_3_LABEL}}</div>
+              <div class="value" data-slot-role="stat-value">{{DASH_KPI_3_VALUE}}</div>
+            </div>
+            <div class="kpi-tile">
+              <div class="label" data-slot-role="stat-label">{{DASH_KPI_4_LABEL}}</div>
+              <div class="value" data-slot-role="stat-value">{{DASH_KPI_4_VALUE}}</div>
+            </div>
+          </div>
+        </section>
+
+        <section data-vincia-section-type="audit-log-band" class="card">
+          <div class="card-header">
+            <h3 data-slot-role="heading-card">{{DASH_RECENT_HEADING}}</h3>
+            <a class="btn ghost sm" href="audit.html">View all</a>
+          </div>
+          <div class="card-body">
+            <ul data-vincia-list="audit-events" class="audit-timeline">
+              <li data-vincia-list-item-template class="security">
+                <span></span>
+                <div>
+                  <div class="meta">
+                    <span class="actor">maya@team.com</span>
+                    <span>·</span>
+                    <span>2 min ago</span>
+                    <span class="badge danger">security</span>
+                  </div>
+                  <div class="summary">Suspended user account <code>kayla@startup.io</code> after 5 failed logins</div>
+                </div>
+              </li>
+              <li>
+                <span></span>
+                <div>
+                  <div class="meta">
+                    <span class="actor">daniel@team.com</span>
+                    <span>·</span>
+                    <span>14 min ago</span>
+                  </div>
+                  <div class="summary">Created project <code>q4-retention-deep-dive</code></div>
+                </div>
+              </li>
+              <li class="billing">
+                <span></span>
+                <div>
+                  <div class="meta">
+                    <span class="actor">stripe.webhook</span>
+                    <span>·</span>
+                    <span>1 hour ago</span>
+                    <span class="badge info">billing</span>
+                  </div>
+                  <div class="summary">Invoice <code>INV-04219</code> paid · $1,240.00</div>
+                </div>
+              </li>
+              <li>
+                <span></span>
+                <div>
+                  <div class="meta">
+                    <span class="actor">aisha@team.com</span>
+                    <span>·</span>
+                    <span>3 hours ago</span>
+                  </div>
+                  <div class="summary">Promoted <code>marco@team.com</code> to admin role</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
