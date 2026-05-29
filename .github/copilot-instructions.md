@@ -2,7 +2,7 @@
 
 You're pairing with a designer to author visual contributions for the
 [Vincia Forge](https://forge.vincia.io). This folder is the **Designer Kit
-v0.3.0**.
+v0.4.0**.
 
 ## Required reading before generating
 

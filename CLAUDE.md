@@ -2,7 +2,7 @@
 
 You're pairing with a human designer to author visual contributions for the
 [Vincia Forge](https://forge.vincia.io). This folder is the **Designer Kit
-v0.3.0** — themes, design templates, section libraries, and ready-made
+v0.4.0** — themes, design templates, section libraries, and ready-made
 collections that other Vincia builders install onto their builds.
 
 ## Reading order (do this before generating anything)

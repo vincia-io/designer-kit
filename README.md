@@ -1,4 +1,4 @@
-# Vincia Designer Kit — v0.3.0
+# Vincia Designer Kit — v0.4.0
 
 You've extracted the Designer Kit — the curated starter pack for designers
 authoring **visual contributions** that ship to the **Vincia Forge**.
@@ -6,7 +6,8 @@ Designers ship themes, design templates, section libraries, ready-made
 collections, and specialty packs that other Vincia builders install onto
 their builds.
 
-**v0.3.0 is the consolidated unified kit.** It absorbs the structural
+**v0.4.0 builds on v0.3.0's consolidated unified kit + adds visual-debug
+tooling and an MCP-driven sample-brands round-trip.** It absorbs the structural
 contracts the platform's Composer + Studio runtime + Editor consume,
 so a template authored from this kit is **pixel-perfect AND fully
 editable** the moment it's installed.
@@ -89,7 +90,13 @@ the AppArchetype. See [`docs/canonical-vocabularies.md`](docs/canonical-vocabula
    — 9.5/10 quality bar.
 
 7. **Smoke-render** against contrasting briefs in [`sample-brands/`](sample-brands/)
-   so you know the design holds across palettes + voices.
+   so you know the design holds across palettes + voices. Once a draft of
+   the template is in studio, the LLM-driven equivalent is
+   `vincia_studio_apply_theme(slug, expert_pick_id) +
+   vincia_studio_screenshot(slug, page, viewport)` against a test app you
+   own — see the screenshot section in
+   [`docs/prompt-for-llm.md`](docs/prompt-for-llm.md) for the
+   round-trip pattern. Both checks should pass before publish.
 
 8. **Publish**:
    ```bash
@@ -193,7 +200,26 @@ If you're an LLM reading this kit on a designer's behalf:
    `examples/portal-website-dashboard-001/` for website + customer-
    accounts hybrid.
 
-## Status — v0.3.0 (May 2026)
+## What's new in v0.4.0 (May 2026)
+
+- **Visual debug via studio MCP**: `docs/prompt-for-llm.md` now teaches
+  `vincia_studio_screenshot(slug, page, viewport)` + the 7 mutating
+  studio tools' `include_screenshot: true` option. Iterate visually
+  without bouncing to a browser tab; LLM clients that render MCP image
+  content blocks (Claude.ai) show the rendered after-state inline in
+  chat.
+- **Sample-brands smoke-test gains an MCP-driven round-trip**:
+  `vincia_studio_apply_theme(slug, expert_pick_id) +
+  vincia_studio_screenshot(slug)` against a test app you own is the
+  LLM equivalent of the local `sample-brands/` smoke-render —
+  documented in the README quick start.
+- **Built-in widget catalog snapshot**: every kit zip bakes in
+  `docs/widget-catalog.{html,json}` + `docs/widget-catalog-for-llm.md`
+  generated from the live platform manifest at build time. If the
+  catalog gains a widget after you extracted the kit, run
+  `vincia widgets sync --out docs` to refresh the snapshot.
+
+## Status — v0.4.0 (May 2026)
 
 - The CLI's `widgets *` commands are live.
 - `create *` scaffolds the 4 foundation tiers (theme, design-template,

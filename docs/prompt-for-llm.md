@@ -1,5 +1,17 @@
 # Designer-LLM prompt — Vincia Forge contribution
 
+> **v0.4.0 update (2026-05-28) — read first:** post-G-S100, the studio MCP
+> surface (`mcp.vincia.io/studio`, `vst_*` token) ships
+> `vincia_studio_screenshot(slug, page, viewport)` for ad-hoc rendering +
+> `include_screenshot: true` on the 7 mutating studio tools
+> (`apply_theme`, `add_widget`, `edit_widget`, `add_collection`,
+> `edit_collection`, `add_page`, `install_plugin`). After each meaningful
+> design edit, ask the studio for a screenshot rather than guessing —
+> see the new "Visual debug via screenshot" section near the bottom.
+> The local `sample-brands/` smoke is still valid, but now has an
+> LLM-driven equivalent: `vincia_studio_apply_theme(slug, expert_pick_id)
+> + vincia_studio_screenshot(slug)` against a test app.
+
 > **v0.3.0 update (2026-05-23) — read first:** when the designer picks
 > **design-template** in the flow below, you MUST also load
 > [`prompt-for-designer-llm.md`](prompt-for-designer-llm.md) into context
@@ -310,6 +322,39 @@ Then run the `vincia create` command with `--logo <path>`.
 6. **Coverage is a quality signal.** Templates that style all typical widgets
    for their archetype earn a "complete coverage" badge in the Forge. Aim
    for it.
+
+## Visual debug via screenshot (post-G-S100)
+
+Designer work is the most visual cohort in the kit. After every meaningful
+edit to a section's HTML/CSS, ask the studio MCP surface to render a
+screenshot of the in-situ result rather than guessing.
+
+The studio MCP server (`mcp.vincia.io/studio`, attach via the `vst_*`
+contributor token) ships:
+
+- `vincia_studio_screenshot(slug, page, viewport?)` — ad-hoc capture. Pass
+  `viewport: 'mobile' | 'tablet' | 'desktop'` to verify the responsive
+  states without bouncing between three browser windows.
+- 7 mutating studio tools (`apply_theme`, `add_widget`, `edit_widget`,
+  `add_collection`, `edit_collection`, `add_page`, `install_plugin`) accept
+  `include_screenshot: true` — the tool's return value contains the
+  rendered after-state image content block, so a single tool call both
+  changes the build AND shows you what it looks like.
+
+A typical iteration loop, in chat:
+
+1. `vincia_studio_apply_theme(slug, expert_pick_id, include_screenshot: true)`
+   — change theme + see it.
+2. Inspect the returned image; if hero typography is wrong:
+3. Edit `theme/tokens.css` for the typography token.
+4. `vincia_studio_screenshot(slug, page: '/', viewport: 'desktop')` — confirm.
+5. `vincia_studio_screenshot(slug, page: '/', viewport: 'mobile')` — confirm
+   responsive.
+6. Move to the next section.
+
+LLM clients that render MCP image content blocks (Claude.ai today;
+ChatGPT image-block rendering untested as of G-S100) show the
+screenshot inline in the chat transcript — no browser tab switching.
 
 ## How to read the widget catalog
 
