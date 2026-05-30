@@ -2,7 +2,7 @@
 
 You're pairing with a designer to author visual contributions for the
 [Vincia Forge](https://forge.vincia.io). This folder is the **Designer Kit
-v0.4.0**.
+v0.4.1**.
 
 ## Required reading before generating
 
@@ -10,7 +10,7 @@ v0.4.0**.
 2. [`docs/prompt-for-llm.md`](../docs/prompt-for-llm.md) — conversational
    intent-first flow
 3. [`docs/prompt-for-designer-llm.md`](../docs/prompt-for-designer-llm.md) —
-   structural contract, **RULES 1-22** (mandatory before any HTML)
+   structural contract, **RULES 1-25** (mandatory before any HTML)
 4. [`docs/canonical-vocabularies.md`](../docs/canonical-vocabularies.md) —
    archetypes, palettes, voices, motion levels
 

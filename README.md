@@ -1,4 +1,4 @@
-# Vincia Designer Kit — v0.4.0
+# Vincia Designer Kit — v0.4.1
 
 You've extracted the Designer Kit — the curated starter pack for designers
 authoring **visual contributions** that ship to the **Vincia Forge**.
@@ -18,7 +18,7 @@ editable** the moment it's installed.
 README.md                                    ← you are here
 docs/
   prompt-for-llm.md                          Entry conversational flow — paste into your LLM first
-  prompt-for-designer-llm.md                 Deep structural reference (RULES 1-22) — read before authoring HTML
+  prompt-for-designer-llm.md                 Deep structural reference (RULES 1-25) — read before authoring HTML
   canonical-vocabularies.md                  Archetypes / palette families / voice tones / motion levels
   template-package-format.md                 On-disk shape of a design-template folder
   validation-checklist.md                    The 9.5/10 quality bar (automated + visual)
@@ -67,9 +67,12 @@ the AppArchetype. See [`docs/canonical-vocabularies.md`](docs/canonical-vocabula
    curl -fsSL https://get.vincia.io/install | bash
    ```
 
-2. **Log in** with your Vincia deployment:
+2. **Log in** (the default Studio host is `studio.vincia.io`, so bare
+   `vincia login` is all you need for the public Vincia SaaS):
    ```bash
-   vincia login --api-host https://<your-vincia-host>
+   vincia login
+   # Self-hosted / enterprise deployment only:
+   vincia login --studio-url https://<your-vincia-host>
    ```
 
 3. **Open this folder in your LLM client** (Claude Code, Cursor, etc.)
@@ -83,7 +86,7 @@ the AppArchetype. See [`docs/canonical-vocabularies.md`](docs/canonical-vocabula
 
 5. **Author your template** as an HTML/CSS folder following
    [`docs/prompt-for-designer-llm.md`](docs/prompt-for-designer-llm.md).
-   That's the deep structural reference — RULES 1-22 cover every
+   That's the deep structural reference — RULES 1-25 cover every
    `data-vincia-*` attribute the importer expects.
 
 6. **Self-check against** [`docs/validation-checklist.md`](docs/validation-checklist.md)
@@ -186,19 +189,39 @@ If you're an LLM reading this kit on a designer's behalf:
 1. Propose these terminal commands to the designer:
    ```bash
    curl -fsSL https://get.vincia.io/install | bash
-   vincia login --api-host https://<their-vincia-host>
+   vincia login   # public SaaS default; self-hosted: vincia login --studio-url https://<their-vincia-host>
    ```
 2. Load [`docs/prompt-for-llm.md`](docs/prompt-for-llm.md) and walk the
    conversational flow from its top.
 3. When the designer picks "design-template", LOAD
    [`docs/prompt-for-designer-llm.md`](docs/prompt-for-designer-llm.md)
    into context — that's where the structural rules live. Read at least
-   PART B (RULES 1-22) before producing any HTML.
+   PART B (RULES 1-25) before producing any HTML.
 4. Study the exemplar closest to the requested archetype before
    authoring — `examples/wellness-habit-tracker-warm-earth-001/` for
    website, `examples/portal-admin-001/` for portal, or
    `examples/portal-website-dashboard-001/` for website + customer-
    accounts hybrid.
+
+## What's new in v0.4.1 (May 2026)
+
+- **Build-type taxonomy de-drift**: docs + examples now consistently state there
+  are exactly two `buildType` values (`website` / `portal`). Removed an invalid
+  `portal-website` value from an example and a duplicated `website` in two field
+  tables. Customer accounts are an opt-in page set within `website`, never a
+  third build type.
+- **Structural rulebook is RULES 1-25**: every cross-reference now matches
+  `docs/prompt-for-designer-llm.md` (rules 23-25 cover resilient text / photos /
+  slots).
+- **Auth-first + sandbox-only preview**: the conversational flow opens with an
+  explicit `vincia whoami` / `vincia login` step and recommends the hosted
+  sandbox preview (studio staging URL + screenshot) — never a localhost preview.
+- **`vincia login` corrected**: docs no longer reference the non-existent
+  `--api-host` flag; bare `vincia login` is the default, `--studio-url` is for
+  self-hosted deployments.
+- **Report friction to Studio**: the new `vincia_studio_report_issue` MCP tool
+  lets an LLM client file kit/CLI/docs bugs directly into Studio for the next
+  release.
 
 ## What's new in v0.4.0 (May 2026)
 
@@ -219,7 +242,7 @@ If you're an LLM reading this kit on a designer's behalf:
   catalog gains a widget after you extracted the kit, run
   `vincia widgets sync --out docs` to refresh the snapshot.
 
-## Status — v0.4.0 (May 2026)
+## Status — v0.4.1 (May 2026)
 
 - The CLI's `widgets *` commands are live.
 - `create *` scaffolds the 4 foundation tiers (theme, design-template,

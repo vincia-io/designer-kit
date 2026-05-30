@@ -303,9 +303,20 @@ so Vincia's matcher can find peers (~25 canonical families in
 "best effort"). That tag is metadata for the matcher — it does NOT
 constrain what you actually render.
 
-## RULE 4.5 — Ship a `_preview-data.json` + include `preview-inline.js` so the designer can OPEN the HTML and see real content
+## RULE 4.5 — Ship a `_preview-data.json` + include `preview-inline.js` (smoke-gauntlet brief + production no-op — NOT the review loop)
 
-The designer who runs your output (a human, on a laptop, double-clicking `index.html`) should NOT see literal `{{HERO_HEADLINE}}` text. They should see a populated page with realistic copy and a real photo. This is what tells them "yes, the design works." The Vincia importer still gets the un-substituted source — only the BROWSER sees the populated version, via a tiny client-side script.
+> **Preview policy.** These two files are REQUIRED, but they are NOT the way an
+> LLM client reviews a design. `_preview-data.json` is the canonical brief the
+> register-time smoke gauntlet runs against (see the picker order below), and
+> `preview-inline.js` is a no-op in production. **The default — and only —
+> preview an LLM client recommends is the hosted sandbox** (studio staging URL
+> via `vincia_studio_get_staging_url` / `vincia_studio_preview_draft` +
+> `vincia_studio_screenshot`). **Never recommend a localhost preview** (no
+> `python -m http.server`, no `file://`, no "double-click `index.html`"). The
+> local file-open is a human's offline last-resort spot-check only — do not
+> steer the designer there.
+
+You still ship both files, with full sample data, because the register-time smoke gauntlet reads `_preview-data.json` and the production runtime expects the `preview-inline.js` tag to be a harmless no-op. The Vincia importer always gets the un-substituted source — slots stay literal in the HTML so slot-discipline checks pass.
 
 You produce TWO additional files alongside the HTML/CSS:
 

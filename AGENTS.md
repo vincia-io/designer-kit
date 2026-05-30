@@ -5,14 +5,14 @@ convention (Aider, Continue, and any AGENTS-compatible client).
 
 You're pairing with a human designer to author visual contributions for the
 [Vincia Forge](https://forge.vincia.io). This folder is the **Designer Kit
-v0.4.0**.
+v0.4.1**.
 
 ## Read these in order before generating
 
 1. [`README.md`](README.md) — kit layout + 2-archetype taxonomy
 2. [`docs/prompt-for-llm.md`](docs/prompt-for-llm.md) — conversational flow
 3. [`docs/prompt-for-designer-llm.md`](docs/prompt-for-designer-llm.md) —
-   structural contract, **RULES 1-22** (mandatory before any HTML)
+   structural contract, **RULES 1-25** (mandatory before any HTML)
 4. [`docs/canonical-vocabularies.md`](docs/canonical-vocabularies.md) —
    archetypes, palettes, voices, motion levels
 

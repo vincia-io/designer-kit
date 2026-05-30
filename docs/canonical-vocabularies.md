@@ -64,7 +64,7 @@ The folder name MUST match `template.json#id`. See
 | `schemaVersion` | number | yes | `2` for HTML format. `1` is legacy widget-tree JSON. |
 | `format` | string | yes | `"html"` for v2. |
 | `archetype` | string | yes | One of the canonical archetypes (§ 4). |
-| `buildType` | string | yes | `"website"` / `"website"` / `"portal"`. |
+| `buildType` | string | yes | `"website"` / `"portal"` (the only two valid values — see § 0). |
 | `designDirection` | string | yes | One-line summary of the visual direction. |
 | `qualityScore` | number | yes | Self-assessed 0–10. Must be ≥ 9.5 to register. |
 | `designedBy` | string | yes | LLM model name + reviewing human. |

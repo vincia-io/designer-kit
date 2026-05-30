@@ -10,7 +10,7 @@
     "trustworthy",
     "clean"
   ],
-  "buildType": "portal-website",
+  "buildType": "website",
   "palette": {
     "brand": "oklch(56% 0.18 255)",
     "accent": "oklch(78% 0.16 80)",

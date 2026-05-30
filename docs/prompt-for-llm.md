@@ -16,7 +16,7 @@
 > **design-template** in the flow below, you MUST also load
 > [`prompt-for-designer-llm.md`](prompt-for-designer-llm.md) into context
 > BEFORE producing any HTML. That doc holds the structural contract
-> (RULES 1-22) for HTML/CSS authoring that the platform's importer +
+> (RULES 1-25) for HTML/CSS authoring that the platform's importer +
 > Composer + Studio runtime consume. Design templates ship as
 > **HTML/CSS folders** in v0.3.0 — not JSON. The 3 exemplars under
 > [`../examples/`](../examples/) (wellness-habit-tracker-warm-earth-001
@@ -36,8 +36,26 @@ this prompt is a real `vincia create <type> <name>` invocation.
 
 ## How to start every session
 
-Greet the designer, confirm CLI auth, and ask the **opening intent question**
-verbatim — do not paraphrase the options:
+**Step 0 — Authenticate FIRST, before anything else.** Run `vincia whoami`. If
+it reports "Not logged in", run `vincia login` (interactive — the designer
+completes the browser/token step) and re-run `vincia whoami` to confirm before
+proceeding. Do NOT scaffold, author, or preview anything until auth succeeds —
+every preview and publish path requires it. If the CLI isn't installed yet,
+install it first (see "For LLM clients" at the bottom), then authenticate.
+
+**Preview policy — applies to the whole session.** The default (and only)
+preview you recommend is the **hosted sandbox preview**: import the draft and
+open the studio staging URL (`vincia_studio_get_staging_url` /
+`vincia_studio_preview_draft`) with inline `vincia_studio_screenshot`. **Never
+recommend a localhost preview** — no `python -m http.server`, no `file://`, no
+"open `index.html` in your browser" as the review loop. The hosted sandbox is
+what the importer, Composer, and runtime actually render, so it is the only
+preview that tells the truth. (The bundled `_preview-data.json` +
+`preview-inline.js` exist for the register-time smoke gauntlet and a production
+slot-fill no-op — not as a review loop. Don't steer the designer there.)
+
+Only after Step 0 succeeds: greet the designer and ask the **opening intent
+question** verbatim — do not paraphrase the options:
 
 > What's the goal of this session?
 >
@@ -166,8 +184,10 @@ their own brand. Skip unless the designer says they want a branded sample.
 3. For themes + design templates: edit `theme/tokens.css` first, then
    `sections/hero.html`, then fan out remaining sections, then fill
    `widget-ui-supplement.html` block-by-block.
-4. Inspect locally: `vincia preview` (read-only inspector; full hot-reload SPA
-   ships in a later phase).
+4. Preview on the **hosted sandbox** — import the draft and open the studio
+   staging URL (`vincia_studio_get_staging_url` / `vincia_studio_preview_draft`),
+   confirming inline with `vincia_studio_screenshot`. Never recommend a
+   localhost preview.
 5. Validate before publish: `vincia test`.
 6. Publish to the Forge: `vincia publish`.
 
@@ -238,7 +258,10 @@ lands.
 
 ### Step C6 — Preview and ship
 
-1. `vincia preview` — local inspector.
+1. Preview on the **hosted sandbox** — the studio staging URL
+   (`vincia_studio_get_staging_url` / `vincia_studio_preview_draft`) plus
+   `vincia_studio_screenshot` for inline confirmation. Never recommend a
+   localhost preview (`python -m http.server` / `file://`).
 2. `vincia test` — validate before deploy.
 3. To go live for the client: the designer's build creator pulls this
    template into their build via the Studio's design-template picker. The
@@ -356,6 +379,34 @@ LLM clients that render MCP image content blocks (Claude.ai today;
 ChatGPT image-block rendering untested as of G-S100) show the
 screenshot inline in the chat transcript — no browser tab switching.
 
+## Report friction back to Studio (don't just narrate it)
+
+When you or the designer hit a real problem with the tooling — an install
+error, a doc that contradicts what the CLI actually does, a command that
+errors on its own happy path, a confusing flow, a missing capability — **file
+it directly into Studio** with the `vincia_studio_report_issue` MCP tool
+(studio MCP surface, `vst_*` token). Don't just describe the bug in chat and
+move on; capture it so the platform team can triage it and fold the fix into
+the next kit/CLI version.
+
+```
+vincia_studio_report_issue(
+  title:    "Windows installer aborts on Node version check",
+  detail:   "install.ps1 runs `node -e \"...split(.)\"` (unquoted dot) → SyntaxError → reads Node 0 → 'too old'. Node 24.16.0 is fine.",
+  surface:  "cli",            // designer-kit | developer-kit | cli | studio | mcp | docs | other
+  severity: "critical",       // low | medium | high | critical
+  category: "install",        // bug | docs | install | ux | enhancement | other
+  kit:      "designer-kit@0.4.0",
+  context:  { os: "Windows 11", node: "24.16.0" }   // secrets auto-redacted server-side
+)
+```
+
+The report is attributed to the signed-in contributor + the MCP client you're
+running in. Later, `vincia_studio_list_issue_reports` lists what's been filed
+(optionally filtered by `status` / `surface`) so an assistant can pick reports
+up and propose fixes. **Rule of thumb:** if you caught yourself working around
+a tooling defect to get unblocked, file a report before continuing.
+
 ## How to read the widget catalog
 
 `widget-catalog-for-llm.md` has one section per widget with three load-bearing
@@ -402,7 +453,7 @@ CLI, instruct them to run these two commands in their terminal:
 
 ```bash
 curl -fsSL https://get.vincia.io/install | bash
-vincia login --api-host https://<their-vincia-host>
+vincia login   # public SaaS default; self-hosted: vincia login --studio-url https://<their-vincia-host>
 ```
 
 Then come back to this conversation and continue from the opening intent

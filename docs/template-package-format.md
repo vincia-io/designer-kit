@@ -104,7 +104,7 @@ Filenames are case-sensitive. Use lowercase + hyphens. The folder name must matc
 | `schemaVersion` | number | yes | Currently `2` (HTML format). Version `1` is JSON widget-tree (legacy). |
 | `format` | string | yes | `"html"` for this format. |
 | `archetype` | string | yes | One of the canonical archetypes (see SCHEMA.md). |
-| `buildType` | string | yes | `"website"` / `"website"` / `"portal"`. |
+| `buildType` | string | yes | `"website"` / `"portal"` (the only two valid values). |
 | `designDirection` | string | yes | One-line summary of the visual direction. |
 | `qualityScore` | number | yes | Self-assessed against VALIDATION-CHECKLIST. Must be ≥9.5 to pass importer's quality gate. |
 | `designedBy` | string | yes | LLM model + reviewing human. |
