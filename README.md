@@ -1,4 +1,4 @@
-# Vincia Designer Kit — v0.4.1
+# Vincia Designer Kit — v0.4.2
 
 You've extracted the Designer Kit — the curated starter pack for designers
 authoring **visual contributions** that ship to the **Vincia Forge**.
@@ -64,8 +64,19 @@ the AppArchetype. See [`docs/canonical-vocabularies.md`](docs/canonical-vocabula
 
 1. **Install the CLI** (one-time):
    ```bash
+   # macOS / Linux:
    curl -fsSL https://get.vincia.io/install | bash
    ```
+   ```powershell
+   # Windows (PowerShell):
+   iwr -useb https://get.vincia.io/install.ps1 | iex
+   ```
+   > **Windows note:** the global npm bin dir is only on PATH in **newly
+   > opened** terminals, so open a fresh PowerShell after install. If a
+   > default `Restricted` execution policy blocks `npm`/`vincia` (`.ps1`
+   > shims), run once (no admin needed):
+   > `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned`
+   > — or call the `.cmd` shims (`npm.cmd`, `vincia.cmd`). Requires Node 18+.
 
 2. **Log in** (the default Studio host is `studio.vincia.io`, so bare
    `vincia login` is all you need for the public Vincia SaaS):
@@ -89,8 +100,13 @@ the AppArchetype. See [`docs/canonical-vocabularies.md`](docs/canonical-vocabula
    That's the deep structural reference — RULES 1-25 cover every
    `data-vincia-*` attribute the importer expects.
 
-6. **Self-check against** [`docs/validation-checklist.md`](docs/validation-checklist.md)
-   — 9.5/10 quality bar.
+6. **Self-check** — run the offline linter (no login required):
+   ```bash
+   vincia validate          # slot parity, CSS color-scope, HTML, anti-patterns
+   ```
+   …against the [`docs/validation-checklist.md`](docs/validation-checklist.md)
+   9.5/10 quality bar. (`vincia test` runs the same checks inside a
+   design-template folder.)
 
 7. **Smoke-render** against contrasting briefs in [`sample-brands/`](sample-brands/)
    so you know the design holds across palettes + voices. Once a draft of
@@ -203,6 +219,16 @@ If you're an LLM reading this kit on a designer's behalf:
    `examples/portal-website-dashboard-001/` for website + customer-
    accounts hybrid.
 
+## What's new in v0.4.2 (May 2026)
+
+- **New `vincia validate` command** — offline design-template lint (slot parity,
+  CSS color-scope, HTML head/alt, anti-patterns) with **no login required**.
+  `vincia test` now runs the same checks inside a design-template folder instead
+  of erroring on a missing `manifest.json`.
+- **Windows install docs** — the PowerShell installer one-liner, an
+  execution-policy note (`Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`),
+  and an "open a fresh terminal" PATH reminder.
+
 ## What's new in v0.4.1 (May 2026)
 
 - **Build-type taxonomy de-drift**: docs + examples now consistently state there
@@ -242,7 +268,7 @@ If you're an LLM reading this kit on a designer's behalf:
   catalog gains a widget after you extracted the kit, run
   `vincia widgets sync --out docs` to refresh the snapshot.
 
-## Status — v0.4.1 (May 2026)
+## Status — v0.4.2 (May 2026)
 
 - The CLI's `widgets *` commands are live.
 - `create *` scaffolds the 4 foundation tiers (theme, design-template,
