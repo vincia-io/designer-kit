@@ -1,4 +1,4 @@
-# Vincia Designer Kit — v0.4.2
+# Vincia Designer Kit — v0.4.3
 
 You've extracted the Designer Kit — the curated starter pack for designers
 authoring **visual contributions** that ship to the **Vincia Forge**.
@@ -219,6 +219,17 @@ If you're an LLM reading this kit on a designer's behalf:
    `examples/portal-website-dashboard-001/` for website + customer-
    accounts hybrid.
 
+## What's new in v0.4.3 (May 2026)
+
+- **Preview docs corrected.** `vincia preview` (the CLI local preview server) is
+  the design-template review loop that actually works — earlier docs wrongly
+  blanket-deprecated "localhost preview" and pointed only at the studio
+  screenshot path, which needs the `/studio` MCP surface + an imported studio
+  app. Now: use `vincia preview`; the studio screenshot path is documented as
+  conditional; and a note clarifies the chat-first sandbox runner renders
+  developer-kit code assets, **not** designer-kit HTML templates. (Don't
+  hand-roll `python -m http.server`/`file://` — `vincia preview` fills slots.)
+
 ## What's new in v0.4.2 (May 2026)
 
 - **New `vincia validate` command** — offline design-template lint (slot parity,
@@ -268,7 +279,7 @@ If you're an LLM reading this kit on a designer's behalf:
   catalog gains a widget after you extracted the kit, run
   `vincia widgets sync --out docs` to refresh the snapshot.
 
-## Status — v0.4.2 (May 2026)
+## Status — v0.4.3 (May 2026)
 
 - The CLI's `widgets *` commands are live.
 - `create *` scaffolds the 4 foundation tiers (theme, design-template,

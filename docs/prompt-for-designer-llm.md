@@ -303,18 +303,22 @@ so Vincia's matcher can find peers (~25 canonical families in
 "best effort"). That tag is metadata for the matcher — it does NOT
 constrain what you actually render.
 
-## RULE 4.5 — Ship a `_preview-data.json` + include `preview-inline.js` (smoke-gauntlet brief + production no-op — NOT the review loop)
+## RULE 4.5 — Ship a `_preview-data.json` + include `preview-inline.js` (required: smoke-gauntlet brief + production no-op + local-preview slot fill)
 
-> **Preview policy.** These two files are REQUIRED, but they are NOT the way an
-> LLM client reviews a design. `_preview-data.json` is the canonical brief the
-> register-time smoke gauntlet runs against (see the picker order below), and
-> `preview-inline.js` is a no-op in production. **The default — and only —
-> preview an LLM client recommends is the hosted sandbox** (studio staging URL
-> via `vincia_studio_get_staging_url` / `vincia_studio_preview_draft` +
-> `vincia_studio_screenshot`). **Never recommend a localhost preview** (no
-> `python -m http.server`, no `file://`, no "double-click `index.html`"). The
-> local file-open is a human's offline last-resort spot-check only — do not
-> steer the designer there.
+> **Preview policy.** These two files are REQUIRED. `_preview-data.json` is the
+> canonical brief the register-time smoke gauntlet runs against (see the picker
+> order below); `preview-inline.js` is a no-op in production AND fills slots for
+> the local preview. To actually SEE the design rendered, the review loop is:
+> **`vincia preview`** — the kit's CLI local preview server (fills your
+> `_preview-data.json` slots, serves a `127.0.0.1:<port>` URL). That's what
+> works for a design-template without any studio app. When the **`/studio`** MCP
+> surface is connected and the template is imported into a studio app, the
+> hosted `vincia_studio_get_staging_url` / `vincia_studio_screenshot` path gives
+> an inline screenshot too. **Don't hand-roll a raw-file preview** (`python -m
+> http.server` / `file://` / double-click `index.html`) — the `{{SLOT}}`s show
+> literal and the JSON `fetch()` is blocked; use `vincia preview` instead.
+> (Note: the chat-first `vincia_sandbox_run` renders developer-kit code assets,
+> not designer-kit HTML templates — so it's not the design-template preview.)
 
 You still ship both files, with full sample data, because the register-time smoke gauntlet reads `_preview-data.json` and the production runtime expects the `preview-inline.js` tag to be a harmless no-op. The Vincia importer always gets the un-substituted source — slots stay literal in the HTML so slot-discipline checks pass.
 

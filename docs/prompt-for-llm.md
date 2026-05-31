@@ -43,16 +43,32 @@ proceeding. Do NOT scaffold, author, or preview anything until auth succeeds —
 every preview and publish path requires it. If the CLI isn't installed yet,
 install it first (see "For LLM clients" at the bottom), then authenticate.
 
-**Preview policy — applies to the whole session.** The default (and only)
-preview you recommend is the **hosted sandbox preview**: import the draft and
-open the studio staging URL (`vincia_studio_get_staging_url` /
-`vincia_studio_preview_draft`) with inline `vincia_studio_screenshot`. **Never
-recommend a localhost preview** — no `python -m http.server`, no `file://`, no
-"open `index.html` in your browser" as the review loop. The hosted sandbox is
-what the importer, Composer, and runtime actually render, so it is the only
-preview that tells the truth. (The bundled `_preview-data.json` +
-`preview-inline.js` exist for the register-time smoke gauntlet and a production
-slot-fill no-op — not as a review loop. Don't steer the designer there.)
+**Preview policy — applies to the whole session.** To see a design-template
+rendered, recommend, in order of what's actually reachable:
+
+1. **`vincia preview`** (the kit's CLI) — **the default design-review loop for a
+   design-template.** It boots a local preview server that fills your
+   `_preview-data.json` slots and serves the pages correctly. The designer runs
+   it in a terminal (`vincia preview` → opens a `127.0.0.1:<port>` URL). This is
+   the one that works without any studio app or extra MCP connector.
+2. **Studio screenshot** (`vincia_studio_get_staging_url` /
+   `vincia_studio_preview_draft` / `vincia_studio_screenshot`) — only available
+   once the **`/studio` MCP surface** is connected (a `vst_*` contributor token)
+   **and** the template has been imported into a studio app you own. If your
+   session only has the `/app` connector (or just the local `vincia mcp serve`
+   tools), these aren't reachable — fall back to `vincia preview`.
+
+> **Don't hand-roll a raw-file preview** — i.e. don't tell the designer to
+> `python -m http.server` or open `index.html` via `file://` directly; the
+> `{{SLOT}}` placeholders show up literal and `fetch()` of the JSON is blocked.
+> Use `vincia preview` instead — it's the sanctioned local server that fills
+> slots. (`_preview-data.json` + `preview-inline.js` also back the register-time
+> smoke gauntlet + a production slot-fill no-op.)
+>
+> **Note (current limitation):** the chat-first **sandbox** runner
+> (`vincia_sandbox_run` / `render_*`) renders **developer-kit code assets**
+> (they need a `manifest.json`), **not** designer-kit HTML design-templates — so
+> for a design-template, `vincia preview` (or the studio path above) is the way.
 
 Only after Step 0 succeeds: greet the designer and ask the **opening intent
 question** verbatim — do not paraphrase the options:
@@ -184,11 +200,13 @@ their own brand. Skip unless the designer says they want a branded sample.
 3. For themes + design templates: edit `theme/tokens.css` first, then
    `sections/hero.html`, then fan out remaining sections, then fill
    `widget-ui-supplement.html` block-by-block.
-4. Preview on the **hosted sandbox** — import the draft and open the studio
-   staging URL (`vincia_studio_get_staging_url` / `vincia_studio_preview_draft`),
-   confirming inline with `vincia_studio_screenshot`. Never recommend a
-   localhost preview.
-5. Validate before publish: `vincia test`.
+4. Preview with **`vincia preview`** (local preview server — fills your
+   `_preview-data.json` slots, opens a `127.0.0.1:<port>` URL). That's the
+   design-review loop that always works. *If* the `/studio` MCP surface is
+   connected and you've imported the template into a studio app, you can also
+   use `vincia_studio_get_staging_url` / `vincia_studio_screenshot` for an
+   inline hosted screenshot. (See the session-top "Preview policy".)
+5. Validate before publish: `vincia validate` (offline lint).
 6. Publish to the Forge: `vincia publish`.
 
 ---
@@ -258,11 +276,13 @@ lands.
 
 ### Step C6 — Preview and ship
 
-1. Preview on the **hosted sandbox** — the studio staging URL
-   (`vincia_studio_get_staging_url` / `vincia_studio_preview_draft`) plus
-   `vincia_studio_screenshot` for inline confirmation. Never recommend a
-   localhost preview (`python -m http.server` / `file://`).
-2. `vincia test` — validate before deploy.
+1. Preview with **`vincia preview`** (local preview server — the loop that
+   always works). When the `/studio` MCP surface is connected + the template is
+   imported into a studio app, `vincia_studio_get_staging_url` /
+   `vincia_studio_screenshot` give an inline hosted screenshot too. Don't
+   hand-roll `python -m http.server` / `file://` of the raw files — use
+   `vincia preview` (it fills slots).
+2. `vincia validate` — offline lint before deploy.
 3. To go live for the client: the designer's build creator pulls this
    template into their build via the Studio's design-template picker. The
    designer doesn't deploy directly — they hand off the template slug + a
