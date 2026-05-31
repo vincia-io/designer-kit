@@ -1,4 +1,4 @@
-# Vincia Designer Kit — v0.4.3
+# Vincia Designer Kit — v0.4.4
 
 You've extracted the Designer Kit — the curated starter pack for designers
 authoring **visual contributions** that ship to the **Vincia Forge**.
@@ -219,6 +219,21 @@ If you're an LLM reading this kit on a designer's behalf:
    `examples/portal-website-dashboard-001/` for website + customer-
    accounts hybrid.
 
+## What's new in v0.4.4 (May 2026)
+
+- **Chat-first preview now works for design-templates.** `vincia_sandbox_run` on a
+  `design-template` cloud draft now returns a hosted preview URL
+  (`https://preview.vincia.io/p/<hash>/index.html`, slots filled) — so a CLI-less
+  LLM client (Claude.ai / ChatGPT / Claude Desktop on the `mcp.vincia.io/contributor`
+  connector) can preview a design-template directly from chat. The preview policy in
+  `docs/prompt-for-llm.md` now lists it as option 1 for chat-first sessions; the v0.4.3
+  note that said the sandbox couldn't render design-templates is superseded. `vincia preview`
+  remains the local-terminal loop.
+- **New contributor guide:** [`docs/prompt-for-llm.md`](docs/prompt-for-llm.md) +
+  the hosted page at https://forge.vincia.io/docs/connecting-llm-clients walk through
+  connecting Claude.ai, ChatGPT, and Claude Desktop to the `/contributor` surface, the
+  chat-first vs local-first loops, and worked designer/developer use cases.
+
 ## What's new in v0.4.3 (May 2026)
 
 - **Preview docs corrected.** `vincia preview` (the CLI local preview server) is
@@ -279,7 +294,7 @@ If you're an LLM reading this kit on a designer's behalf:
   catalog gains a widget after you extracted the kit, run
   `vincia widgets sync --out docs` to refresh the snapshot.
 
-## Status — v0.4.3 (May 2026)
+## Status — v0.4.4 (May 2026)
 
 - The CLI's `widgets *` commands are live.
 - `create *` scaffolds the 4 foundation tiers (theme, design-template,

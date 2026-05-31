@@ -317,8 +317,11 @@ constrain what you actually render.
 > an inline screenshot too. **Don't hand-roll a raw-file preview** (`python -m
 > http.server` / `file://` / double-click `index.html`) — the `{{SLOT}}`s show
 > literal and the JSON `fetch()` is blocked; use `vincia preview` instead.
-> (Note: the chat-first `vincia_sandbox_run` renders developer-kit code assets,
-> not designer-kit HTML templates — so it's not the design-template preview.)
+> (Update 2026-05-31: the chat-first `vincia_sandbox_run` now ALSO previews a
+> `design-template` cloud draft — it returns a hosted
+> `https://preview.vincia.io/p/<hash>/index.html` with slots filled, so a
+> CLI-less client on the `/contributor` connector can preview from chat. Use
+> `vincia preview` when working in a terminal; both are valid.)
 
 You still ship both files, with full sample data, because the register-time smoke gauntlet reads `_preview-data.json` and the production runtime expects the `preview-inline.js` tag to be a harmless no-op. The Vincia importer always gets the un-substituted source — slots stay literal in the HTML so slot-discipline checks pass.
 

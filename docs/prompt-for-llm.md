@@ -46,17 +46,25 @@ install it first (see "For LLM clients" at the bottom), then authenticate.
 **Preview policy — applies to the whole session.** To see a design-template
 rendered, recommend, in order of what's actually reachable:
 
-1. **`vincia preview`** (the kit's CLI) — **the default design-review loop for a
-   design-template.** It boots a local preview server that fills your
-   `_preview-data.json` slots and serves the pages correctly. The designer runs
-   it in a terminal (`vincia preview` → opens a `127.0.0.1:<port>` URL). This is
-   the one that works without any studio app or extra MCP connector.
-2. **Studio screenshot** (`vincia_studio_get_staging_url` /
+1. **`vincia_sandbox_run` on a `design-template` cloud draft (chat-first)** —
+   **the default when the session has no local CLI** (Claude.ai / ChatGPT /
+   Claude Desktop on the `mcp.vincia.io/contributor` connector). It materialises
+   the draft folder into the hosted preview store and returns a **`preview_url`**
+   (`https://preview.vincia.io/p/<hash>/index.html`); `preview-inline.js` fills
+   the `_preview-data.json` slots. Edit → run → refresh. (New 2026-05-31 — the
+   sandbox runner previously rendered only developer-kit code; it now renders
+   design-templates too.)
+2. **`vincia preview`** (the kit's CLI) — **the default design-review loop when
+   the designer is working in a terminal.** It boots a local preview server that
+   fills your `_preview-data.json` slots and serves the pages correctly
+   (`vincia preview` → opens a `127.0.0.1:<port>` URL). Works without any studio
+   app or extra MCP connector.
+3. **Studio screenshot** (`vincia_studio_get_staging_url` /
    `vincia_studio_preview_draft` / `vincia_studio_screenshot`) — only available
    once the **`/studio` MCP surface** is connected (a `vst_*` contributor token)
    **and** the template has been imported into a studio app you own. If your
    session only has the `/app` connector (or just the local `vincia mcp serve`
-   tools), these aren't reachable — fall back to `vincia preview`.
+   tools), these aren't reachable — fall back to options 1/2.
 
 > **Don't hand-roll a raw-file preview** — i.e. don't tell the designer to
 > `python -m http.server` or open `index.html` via `file://` directly; the
@@ -65,10 +73,13 @@ rendered, recommend, in order of what's actually reachable:
 > slots. (`_preview-data.json` + `preview-inline.js` also back the register-time
 > smoke gauntlet + a production slot-fill no-op.)
 >
-> **Note (current limitation):** the chat-first **sandbox** runner
-> (`vincia_sandbox_run` / `render_*`) renders **developer-kit code assets**
-> (they need a `manifest.json`), **not** designer-kit HTML design-templates — so
-> for a design-template, `vincia preview` (or the studio path above) is the way.
+> **Update (2026-05-31): chat-first sandbox preview now supports design-templates.**
+> `vincia_sandbox_run` on a `design-template` draft returns a hosted
+> `preview_url` (`https://preview.vincia.io/p/<hash>/index.html`) with the slots
+> filled — so a CLI-less LLM client (Claude.ai / ChatGPT / Claude Desktop on the
+> `/contributor` connector) can preview directly from chat (option 1 above).
+> `vincia preview` remains the local-terminal loop. (`render_*` still targets
+> developer-kit code assets that ship a `manifest.json`.)
 
 Only after Step 0 succeeds: greet the designer and ask the **opening intent
 question** verbatim — do not paraphrase the options:
