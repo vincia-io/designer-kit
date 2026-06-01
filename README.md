@@ -1,4 +1,4 @@
-# Vincia Designer Kit — v0.4.4
+# Vincia Designer Kit — v0.4.5
 
 You've extracted the Designer Kit — the curated starter pack for designers
 authoring **visual contributions** that ship to the **Vincia Forge**.
@@ -122,6 +122,24 @@ the AppArchetype. See [`docs/canonical-vocabularies.md`](docs/canonical-vocabula
    vincia publish
    ```
 
+## Keeping the kit up to date
+
+New kit versions ship regularly (bug fixes, new rules, new examples). This kit is a folder you downloaded — it doesn't auto-update.
+
+- **Check your version vs latest:** the title line above (`# Vincia Designer Kit — vX.Y.Z`) and the `## Status` line show what you have; the latest is at `https://get.vincia.io/kits/` and in the `## What's new` changelog below.
+- **Cloned with git (recommended for staying current):** `git pull` updates the rulebook, examples, and editor configs in place, and shows you exactly what changed.
+  ```bash
+  git clone https://github.com/vincia-io/designer-kit.git    # first time
+  cd designer-kit && git pull                                # to update
+  ```
+- **Downloaded the zip:** re-download the latest and unzip it over the folder (back up local edits first).
+  ```bash
+  curl -fsSL https://get.vincia.io/kits/designer-kit-latest.zip -o designer-kit.zip && unzip -o designer-kit.zip
+  ```
+- **Keep the CLI current too** (separate from the kit): `vincia upgrade`, or re-run `curl -fsSL https://get.vincia.io/install | bash`. After upgrading the CLI **or** the kit, **restart your LLM client / MCP server** so it relaunches `vincia mcp serve` and surfaces new tools.
+
+> Using a web client over the remote MCP surface (`https://mcp.vincia.io/contributor`) instead of a local kit? That surface is always current — nothing to upgrade.
+
 ## How a template flows through the platform
 
 ```
@@ -219,6 +237,14 @@ If you're an LLM reading this kit on a designer's behalf:
    `examples/portal-website-dashboard-001/` for website + customer-
    accounts hybrid.
 
+## What's new in v0.4.5 (May 2026)
+
+- **New "Keeping the kit up to date" section** (above) — how to refresh an existing
+  kit to a newer version: `git pull` if you cloned (recommended), or re-download the
+  `-latest` zip; how to check your version vs latest; and a reminder to keep the CLI
+  current + restart your MCP client after an upgrade. Mirrors the hosted
+  https://forge.vincia.io/docs/getting-started "Keeping your kit up to date" section.
+
 ## What's new in v0.4.4 (May 2026)
 
 - **Chat-first preview now works for design-templates.** `vincia_sandbox_run` on a
@@ -294,7 +320,7 @@ If you're an LLM reading this kit on a designer's behalf:
   catalog gains a widget after you extracted the kit, run
   `vincia widgets sync --out docs` to refresh the snapshot.
 
-## Status — v0.4.4 (May 2026)
+## Status — v0.4.5 (May 2026)
 
 - The CLI's `widgets *` commands are live.
 - `create *` scaffolds the 4 foundation tiers (theme, design-template,
