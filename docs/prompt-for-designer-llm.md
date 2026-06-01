@@ -1035,7 +1035,11 @@ For `website` and `portal` builds, login + signup + password-reset forms MUST be
 
 Every `<form>` declares:
 - `data-vincia-form="<form-id>"` — unique within the page (e.g. `newsletter`, `contact`, `login`)
-- Optional `data-vincia-form-workflow="<workflow-slug>"` — workflow to fire on submit
+- Optional `data-vincia-form-workflow="<workflow-slug>"` — workflow to fire on submit. The record is always stored (`insert-row`, **LIVE**); other steps (`send-email`, etc.) are **AUTHOR-FORWARD** — declare them in `template.json#workflows[]` to be future-ready, but they don't fire yet. See [`capability-catalog.md`](capability-catalog.md) §4.
+
+Each field may also carry:
+- `data-vincia-validate='{"pattern":"^[0-9]{5}$","minLength":2,"maxLength":40,"match":"password","message":"…"}'` — rich validation (regex / min / max / match-another-field). Enforced **client-side** by the interaction runtime via `setCustomValidity`; the server still validates field types. **LIVE.**
+- For a multi-step / wizard form, DON'T invent a stepper attribute — author it with the interaction model (RULE 26): `show`/`hide` field-groups behind Next/Back buttons, guarded by `data-vincia-when` on `form.fields.*`. **LIVE.**
 
 Every form field declares:
 - `data-vincia-field="<field-name>"` — the AppDefinition field name (kebab-case)
@@ -1221,6 +1225,55 @@ to count) is deferred to a follow-up phase per the resilience plan;
 declaring the schema extensions today means templates author against
 the contract from day one.
 
+## RULE 26 — Behaviour via the interaction model, NEVER hand-written `<script>`
+
+"When the user does X, Y happens; then when Z, W happens" is authored
+declaratively — events → guarded conditions → actions — with the
+`data-vincia-on` / `data-vincia-when` / `data-vincia-do` attributes. The
+runtime injects one small, audited interpreter; you never ship behaviour JS.
+
+```html
+<!-- timed popup, once per visitor -->
+<div data-vincia-on="delay:5s"
+     data-vincia-when='!event.has("nl_seen")'
+     data-vincia-do="open-modal:newsletter"></div>
+```
+
+- Triggers: `load`, `delay:<n>s`, `click`, `change`, `submit`,
+  `scroll-into-view`, `exit-intent`, `event:<name>`.
+- Actions (`;`-separated): `show` / `hide` / `toggle` / `add-class` /
+  `open-modal` / `close-modal` / `toast` / `navigate` / `set-event` /
+  `submit-form` / `trigger-workflow`.
+- Chaining: an action does `set-event:<name>`; a later rule's `when` reads
+  `event.has("<name>")`. That composes arbitrary multi-step flows as a
+  declarative state machine.
+
+Full spec, the `when` grammar, and worked multi-step examples:
+[`interaction-model.md`](interaction-model.md). **LIVE.**
+
+`script.js` (RULE 14) remains allowed ONLY for purely cosmetic motion, never
+for behaviour the interaction model can express.
+
+## RULE 27 — Conditional rendering via `data-vincia-visible-when`
+
+Show or hide a section/element by state, using the same expression grammar as
+RULE 26's `when`:
+
+```html
+<section data-vincia-section-type="cta"
+         data-vincia-visible-when='event.has("contact_submitted")'> … </section>
+
+<aside data-vincia-visible-when='user.authenticated'> … </aside>
+```
+
+The interaction runtime evaluates it **client-side** on load and re-evaluates
+on every field change / event flip, hiding or showing the element. (SSR
+pre-evaluation for cacheable namespaces is a later optimization; functionally
+the element is correct from first paint for stateful conditions.) For one field
+shown only when another is filled, put
+`data-vincia-visible-when='form.fields.<name> != ""'` on the field's wrapper
+inside the `<form>`. **LIVE.**
+
 ---
 
 # ============================================================
@@ -1241,7 +1294,18 @@ the contract from day one.
 
 ## Path 4 — Functional templates (forms / dynamic URLs / lists / workflows / auth gating)
 
-### Path 4a · Form submissions to a backing data table (Phase 1 — SHIPPED)
+> ⚠️ **Authoritative status lives in [`capability-catalog.md`](capability-catalog.md).**
+> Read it before authoring anything here. Some markers below are **LIVE**
+> (parsed + executed at runtime), some are **WIRED-AT-SUBMIT**, and some are
+> **AUTHOR-FORWARD** (lint passes, runtime does NOT execute yet — do not rely on
+> them for a shipping site). The catalog tags every case. Never emit a marker
+> the runtime ignores: lint may wave it through, but the visitor sees nothing
+> happen — that is silent drift. For "when the user does X, Y happens" behaviour
+> (popups, reveals, multi-step chains), use the **interaction model**
+> ([`interaction-model.md`](interaction-model.md), RULE 26) — never hand-written
+> `<script>`.
+
+### Path 4a · Form submissions to a backing data table (Phase 1 — SHIPPED · LIVE)
 
 `<form data-vincia-form="contact">` already creates a backing collection
 per RULE 17. Submissions land in the studio's data tables automatically
@@ -1296,9 +1360,12 @@ the loaded record:
 - Pages that use `data-vincia-bind` but have no matching `routes[]` entry
   warn (not error) — useful when authoring forward-compatibly
 
-**What's not yet wired:** the tenant runtime ignores `routes[]` and
-`data-vincia-bind` for now — pages render with literal `{{SLOT}}` fallbacks
-filled from the brand brief. Runtime support lands in Path 4b Phase 2.
+**Runtime status (2026-06-01): LIVE.** The tenant runtime now matches the
+`:param` route, fetches the ONE record whose fields satisfy `load.where` (with
+`{{params.X}}` resolved from the URL), and fills every
+`data-vincia-bind="record.<field>"` element (and `{{record.<field>}}` token)
+with the live value, server-side. If no record matches, bound slots fall back
+to their authored `{{SLOT}}`.
 
 ### Path 4c · Lists from real collection data (PLANNED)
 
@@ -1335,9 +1402,13 @@ shape above. Triggers can be `form-submit`, `route-load`, `webhook-in`,
 - Every `data-vincia-form-workflow="<id>"` in HTML must reference a
   declared workflow id (otherwise the workflow never fires)
 
-**What's not yet wired:** the runtime executes the form-submit hook
-trivially (insert-row only, no email send / no branching / no waits).
-Full step-runner support lands with Path 4d Phase 2.
+**Runtime status (2026-06-01): LIVE for single-chain notify steps.** The
+parser stamps `config.workflowId` on the bound form and emits a runnable
+workflow; on submit the studio endpoint runs the node chain — `insert-row`
+(always), `send-email`, and `send-webhook` all fire (`send-email` requires a
+platform email transport to be configured). `{{record.<field>}}` in step
+configs resolves from the submitted row. `branch` / `wait` / `send-sms` are
+validated but not yet executed (later phase).
 
 ### Path 4e · Auth-gated sections (LINT SHIPPED · runtime PARTIAL — page-level auth via role)
 
@@ -1359,9 +1430,11 @@ home), annotate:
 - `data-vincia-auth-message` without a sibling `data-vincia-bucket="private"`
   warns (the message has no effect on a public section)
 
-**What's not yet wired:** the runtime ignores `data-vincia-bucket` on
-section elements — every section in a page renders regardless of bucket.
-Per-section gating lands with Path 4e Phase 2.
+**Runtime status (2026-06-01): LIVE.** For anonymous visitors the runtime
+replaces a `data-vincia-bucket="private"` section with the
+`data-vincia-auth-message` text + a Sign in link; authenticated visitors see
+the section normally. (Whole private PAGES are still gated by page role as
+before — this is the per-section gate on otherwise-public pages.)
 
 ## Path 5a — Module slots (drop Vincia widgets into designer-marked spots)
 

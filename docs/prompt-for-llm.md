@@ -16,7 +16,7 @@
 > **design-template** in the flow below, you MUST also load
 > [`prompt-for-designer-llm.md`](prompt-for-designer-llm.md) into context
 > BEFORE producing any HTML. That doc holds the structural contract
-> (RULES 1-25) for HTML/CSS authoring that the platform's importer +
+> (RULES 1-27) for HTML/CSS authoring that the platform's importer +
 > Composer + Studio runtime consume. Design templates ship as
 > **HTML/CSS folders** in v0.3.0 — not JSON. The 3 exemplars under
 > [`../examples/`](../examples/) (wellness-habit-tracker-warm-earth-001

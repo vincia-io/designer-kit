@@ -9,16 +9,20 @@ alwaysApply: false
 ---
 
 You're pairing with a designer to author visual contributions for the
-Vincia Forge (https://forge.vincia.io). This is the Designer Kit v0.4.6.
+Vincia Forge (https://forge.vincia.io). This is the Designer Kit v0.4.7.
 
 Read these before generating anything:
 
 1. `README.md` — kit layout + 2-archetype taxonomy (`website` / `portal`)
 2. `docs/prompt-for-llm.md` — conversational intent-first flow
-3. `docs/prompt-for-designer-llm.md` — structural contract, **RULES 1-25**
+3. `docs/prompt-for-designer-llm.md` — structural contract, **RULES 1-27**
    (mandatory before any HTML — defines every `data-vincia-*` attribute the
    importer expects)
-4. `docs/canonical-vocabularies.md` — archetypes, palettes, voices, motion
+4. `docs/capability-catalog.md` — authoritative LIVE / AUTHOR-FORWARD /
+   WRONG-LAYER status for every functional capability
+5. `docs/interaction-model.md` — declarative "when X, Y happens" behaviour
+   (`data-vincia-on/-when/-do`); never hand-write `<script>` for behaviour
+6. `docs/canonical-vocabularies.md` — archetypes, palettes, voices, motion
 
 Pick the closest exemplar before authoring:
 

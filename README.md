@@ -1,4 +1,4 @@
-# Vincia Designer Kit — v0.4.6
+# Vincia Designer Kit — v0.4.7
 
 You've extracted the Designer Kit — the curated starter pack for designers
 authoring **visual contributions** that ship to the **Vincia Forge**.
@@ -18,7 +18,9 @@ editable** the moment it's installed.
 README.md                                    ← you are here
 docs/
   prompt-for-llm.md                          Entry conversational flow — paste into your LLM first
-  prompt-for-designer-llm.md                 Deep structural reference (RULES 1-25) — read before authoring HTML
+  prompt-for-designer-llm.md                 Deep structural reference (RULES 1-27) — read before authoring HTML
+  capability-catalog.md                      LIVE / AUTHOR-FORWARD / WRONG-LAYER status for every functional capability
+  interaction-model.md                       Declarative "when X, Y happens" behaviour (data-vincia-on/-when/-do) — no <script>
   canonical-vocabularies.md                  Archetypes / palette families / voice tones / motion levels
   template-package-format.md                 On-disk shape of a design-template folder
   validation-checklist.md                    The 9.5/10 quality bar (automated + visual)
@@ -97,7 +99,7 @@ the AppArchetype. See [`docs/canonical-vocabularies.md`](docs/canonical-vocabula
 
 5. **Author your template** as an HTML/CSS folder following
    [`docs/prompt-for-designer-llm.md`](docs/prompt-for-designer-llm.md).
-   That's the deep structural reference — RULES 1-25 cover every
+   That's the deep structural reference — RULES 1-27 cover every
    `data-vincia-*` attribute the importer expects.
 
 6. **Self-check** — run the offline linter (no login required):
@@ -230,12 +232,37 @@ If you're an LLM reading this kit on a designer's behalf:
 3. When the designer picks "design-template", LOAD
    [`docs/prompt-for-designer-llm.md`](docs/prompt-for-designer-llm.md)
    into context — that's where the structural rules live. Read at least
-   PART B (RULES 1-25) before producing any HTML.
+   PART B (RULES 1-27) before producing any HTML.
 4. Study the exemplar closest to the requested archetype before
    authoring — `examples/wellness-habit-tracker-warm-earth-001/` for
    website, `examples/portal-admin-001/` for portal, or
    `examples/portal-website-dashboard-001/` for website + customer-
    accounts hybrid.
+
+## What's new in v0.4.7 (June 2026)
+
+- **Functional capabilities are now LIVE — and there's an authoritative map.**
+  New [`docs/capability-catalog.md`](docs/capability-catalog.md) tags every
+  functional capability LIVE / AUTHOR-FORWARD / WRONG-LAYER so you never author
+  a marker the runtime silently ignores. Newly wired end-to-end this release:
+  - **Form → server workflow** — `data-vincia-form-workflow="<id>"` +
+    `template.json#workflows[]` now runs `send-email` / `send-webhook` on submit
+    (the parser stamps `config.workflowId`; `{{record.<field>}}` resolves from
+    the submitted row). Email sends when a platform transport is configured.
+  - **Dynamic detail routes** — `routes[].load` + `data-vincia-bind="record.<field>"`
+    (or `{{record.<field>}}`) now fetch the matching record per request and fill
+    the bound elements server-side.
+  - **Per-section auth gate** — `data-vincia-bucket="private"` +
+    `data-vincia-auth-message` now replaces just that section with a sign-in
+    prompt for anonymous visitors.
+- **Declarative behaviour without `<script>`: RULES 26 + 27.** New
+  [`docs/interaction-model.md`](docs/interaction-model.md) — author "when the
+  user does X, Y happens" (timed popups, exit-intent, reveal-on-scroll,
+  multi-step chains) with `data-vincia-on` / `-when` / `-do`, conditional
+  rendering with `data-vincia-visible-when`, and rich field validation with
+  `data-vincia-validate`. A runtime interpreter executes them; the importer
+  lints triggers/actions/targets/expressions. Structural rulebook is now
+  **RULES 1-27**.
 
 ## What's new in v0.4.6 (June 2026)
 
@@ -301,7 +328,7 @@ If you're an LLM reading this kit on a designer's behalf:
   `portal-website` value from an example and a duplicated `website` in two field
   tables. Customer accounts are an opt-in page set within `website`, never a
   third build type.
-- **Structural rulebook is RULES 1-25**: every cross-reference now matches
+- **Structural rulebook is RULES 1-27**: every cross-reference now matches
   `docs/prompt-for-designer-llm.md` (rules 23-25 cover resilient text / photos /
   slots).
 - **Auth-first + sandbox-only preview**: the conversational flow opens with an
@@ -333,7 +360,7 @@ If you're an LLM reading this kit on a designer's behalf:
   catalog gains a widget after you extracted the kit, run
   `vincia widgets sync --out docs` to refresh the snapshot.
 
-## Status — v0.4.6 (May 2026)
+## Status — v0.4.7 (June 2026)
 
 - The CLI's `widgets *` commands are live.
 - `create *` scaffolds the 4 foundation tiers (theme, design-template,

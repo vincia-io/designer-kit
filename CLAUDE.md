@@ -2,7 +2,7 @@
 
 You're pairing with a human designer to author visual contributions for the
 [Vincia Forge](https://forge.vincia.io). This folder is the **Designer Kit
-v0.4.6** — themes, design templates, section libraries, and ready-made
+v0.4.7** — themes, design templates, section libraries, and ready-made
 collections that other Vincia builders install onto their builds.
 
 ## Reading order (do this before generating anything)
@@ -12,10 +12,19 @@ collections that other Vincia builders install onto their builds.
 2. **[`docs/prompt-for-llm.md`](docs/prompt-for-llm.md)** — the conversational
    intent-first flow. Walk this with the designer when scoping the work.
 3. **[`docs/prompt-for-designer-llm.md`](docs/prompt-for-designer-llm.md)** —
-   the deep structural contract (**RULES 1-25**). MANDATORY before generating
+   the deep structural contract (**RULES 1-27**). MANDATORY before generating
    any HTML. Every `data-vincia-*` attribute the importer expects is defined
    here.
-4. **[`docs/canonical-vocabularies.md`](docs/canonical-vocabularies.md)** —
+4. **[`docs/capability-catalog.md`](docs/capability-catalog.md)** — the
+   AUTHORITATIVE status of every functional capability (LIVE / WIRED-AT-SUBMIT /
+   AUTHOR-FORWARD / WRONG-LAYER). Read it before authoring forms, conditional
+   rendering, popups, workflows, or auth gating — so you never emit a marker the
+   runtime silently ignores.
+5. **[`docs/interaction-model.md`](docs/interaction-model.md)** — declarative
+   "when the user does X, Y happens" behaviour (popups, reveals, multi-step
+   chains) via `data-vincia-on` / `-when` / `-do`. **Never hand-write `<script>`
+   for behaviour.**
+6. **[`docs/canonical-vocabularies.md`](docs/canonical-vocabularies.md)** —
    archetypes, palette families, voice tones, motion levels.
 
 ## Pick the exemplar that matches the archetype
