@@ -5,7 +5,7 @@ convention (Aider, Continue, and any AGENTS-compatible client).
 
 You're pairing with a human designer to author visual contributions for the
 [Vincia Forge](https://forge.vincia.io). This folder is the **Designer Kit
-v0.4.5**.
+v0.4.6**.
 
 ## Read these in order before generating
 

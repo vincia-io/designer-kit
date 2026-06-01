@@ -1,4 +1,4 @@
-# Vincia Designer Kit — v0.4.5
+# Vincia Designer Kit — v0.4.6
 
 You've extracted the Designer Kit — the curated starter pack for designers
 authoring **visual contributions** that ship to the **Vincia Forge**.
@@ -237,6 +237,19 @@ If you're an LLM reading this kit on a designer's behalf:
    `examples/portal-website-dashboard-001/` for website + customer-
    accounts hybrid.
 
+## What's new in v0.4.6 (June 2026)
+
+- **Chat-first authoring: write the COMPLETE file set to the draft.** RULE 4.5 now
+  spells out that a cloud-draft design-template needs ALL of `template.json`,
+  `index.html` (+ pages), `styles.css`, `_preview-data.json`, and `preview-inline.js`
+  written via `vincia_sandbox_write_file` BEFORE `vincia_sandbox_run` — the LLM
+  often stopped after `index.html`, leaving slots literal. `vincia_sandbox_run` now
+  returns `complete:false` + `warnings[]` naming the missing files, and **renders an
+  inline screenshot** so a headless client (Claude Code / chat) SEES the result, not
+  just a URL. (Platform-side: the `?screenshot=1` preview endpoint + the studio
+  drafts "Run draft" panel now render via the screenshot-renderer service; a "Drafts"
+  entry was added to the Forge nav.)
+
 ## What's new in v0.4.5 (May 2026)
 
 - **New "Keeping the kit up to date" section** (above) — how to refresh an existing
@@ -320,7 +333,7 @@ If you're an LLM reading this kit on a designer's behalf:
   catalog gains a widget after you extracted the kit, run
   `vincia widgets sync --out docs` to refresh the snapshot.
 
-## Status — v0.4.5 (May 2026)
+## Status — v0.4.6 (May 2026)
 
 - The CLI's `widgets *` commands are live.
 - `create *` scaffolds the 4 foundation tiers (theme, design-template,

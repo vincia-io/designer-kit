@@ -325,6 +325,20 @@ constrain what you actually render.
 
 You still ship both files, with full sample data, because the register-time smoke gauntlet reads `_preview-data.json` and the production runtime expects the `preview-inline.js` tag to be a harmless no-op. The Vincia importer always gets the un-substituted source — slots stay literal in the HTML so slot-discipline checks pass.
 
+> **⚠️ Chat-first / cloud-draft: write the COMPLETE file set BEFORE you run.**
+> When authoring into a cloud draft (`vincia_sandbox_open_draft` → repeated
+> `vincia_sandbox_write_file`), you MUST upload **every** file the template needs
+> — not just `index.html`. The complete set is:
+> `template.json`, `index.html` (+ any other pages like `about.html`,
+> `contact.html`), `styles.css`, **`_preview-data.json`**, and **`preview-inline.js`**.
+> Each is a separate `vincia_sandbox_write_file` call; the model often stops after
+> `index.html` — don't. If `_preview-data.json` or `preview-inline.js` is missing,
+> the preview renders the `{{SLOT}}` tokens LITERALLY (and `vincia_sandbox_run`
+> now returns a `warnings[]` + `complete:false` telling you exactly which files to
+> add). Write them all, THEN `vincia_sandbox_run` to get the hosted preview +
+> inline screenshot. (`preview-inline.js` ships in the kit's `tools/` folder —
+> copy its contents into the draft.)
+
 You produce TWO additional files alongside the HTML/CSS:
 
 **1. `_preview-data.json`** — sample copy + photo URLs that mirror the brand brief shape:
