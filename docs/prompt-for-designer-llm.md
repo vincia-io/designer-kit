@@ -1274,6 +1274,47 @@ shown only when another is filled, put
 `data-vincia-visible-when='form.fields.<name> != ""'` on the field's wrapper
 inside the `<form>`. **LIVE.**
 
+## RULE 28 — Motion via `data-vincia-motion`, NEVER an animation library
+
+The "Framer feel" is declarative — one attribute, the platform animates it on
+scroll/hover; `prefers-reduced-motion` is honored automatically.
+
+```html
+<h1 data-vincia-motion="fade-up">{{HERO_HEADLINE}}</h1>
+<div data-vincia-motion="stagger" data-vincia-motion-stagger="0.1"> …cards… </div>
+<img data-vincia-motion="parallax" data-vincia-motion-speed="0.3" src="{{photo:hero}}">
+<article data-vincia-motion="hover-tilt"> …pricing… </article>
+```
+
+Effects: `reveal` / `fade-up` / `fade-in` / `scale-in` / `stagger` / `parallax`
+/ `scroll-scrub` / `hover-lift` / `hover-tilt` / `float`. Params:
+`-motion-{distance,duration,delay,stagger,speed,once}`. Keep it subtle (lint
+warns over the comfort caps). Full spec + examples:
+[`motion-model.md`](motion-model.md). **LIVE.** (Don't import GSAP/Framer/etc.
+— RULE 8 forbids animation libraries; this is the platform-owned replacement.)
+
+## RULE 29 — Mount a platform widget with `data-vincia-widget`
+
+To drop one of the platform's existing interactive widgets (carousel, chart,
+countdown, comparison-table, FAQ, before/after slider, …) into your template,
+mark a container — the platform renders the real widget; you never write its
+code:
+
+```html
+<div data-vincia-widget="carousel" data-vincia-w-autoplay="true" data-vincia-w-interval="5000"></div>
+<div data-vincia-widget="comparison-table" data-vincia-w-highlight="pro"></div>
+<div data-vincia-widget="card-grid" data-vincia-bind="collection:services"></div>
+```
+
+- kind = the widget type (kebab-case). Params via `data-vincia-w-<key>="<val>"`
+  (auto-coerced to boolean/number/string; `kebab-key` → `camelCase`).
+- bind data with `data-vincia-bind="collection:<slug>"`.
+- The container's inner markup is replaced by the widget — put a sensible
+  fallback inside for non-JS/preview if you like; it won't render at runtime.
+- This is how you reach JS-rich-but-reusable UI **without** the developer kit
+  for things the platform already ships. **LIVE** (parser + lint). Truly
+  bespoke/arbitrary-JS interactivity still belongs to a developer-kit widget.
+
 ---
 
 # ============================================================

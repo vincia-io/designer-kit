@@ -82,6 +82,32 @@ event flag; a later rule's `when` reads it. That composes arbitrary
 "X → then when Y → then Z" sequences as a declarative state machine, with no
 imperative code.
 
+## 3b. Motion — the "Framer feel" (LIVE)
+
+`data-vincia-motion="<effect>"` — platform animates on scroll/hover; reduced-motion automatic. See [`motion-model.md`](motion-model.md).
+
+| Case | Marker | Status |
+|---|---|---|
+| Reveal / fade-up / fade-in / scale-in on scroll | `data-vincia-motion="fade-up"` | **LIVE** |
+| Stagger children into view | `data-vincia-motion="stagger"` on the container | **LIVE** |
+| Parallax depth | `data-vincia-motion="parallax" data-vincia-motion-speed="0.3"` | **LIVE** |
+| Scroll-scrubbed progress (`--vincia-progress`) | `data-vincia-motion="scroll-scrub"` | **LIVE** |
+| Hover lift / 3D tilt | `data-vincia-motion="hover-lift"` / `"hover-tilt"` | **LIVE** |
+| Ambient float | `data-vincia-motion="float"` | **LIVE** |
+| GSAP / Framer / animation library | — | **WRONG-LAYER** — forbidden (RULE 8); use the above |
+
+## 3c. Mount an existing platform widget (LIVE)
+
+`data-vincia-widget="<kind>"` drops a registry widget into your template (params via `data-vincia-w-<key>`, data via `data-vincia-bind="collection:<slug>"`). See RULE 29.
+
+| Case | Marker | Status |
+|---|---|---|
+| Carousel / banner slider | `data-vincia-widget="carousel"` | **LIVE** |
+| Before/after slider, tabs, accordion, FAQ | `data-vincia-widget="before-after-slider"` etc. | **LIVE** |
+| Countdown, comparison-table, pricing | `data-vincia-widget="countdown-timer"` etc. | **LIVE** |
+| Chart / data-table / card-grid bound to a collection | `data-vincia-widget="chart" data-vincia-bind="collection:sales"` | **LIVE** |
+| Arbitrary bespoke interactive component | — | **WRONG-LAYER** — build a developer-kit widget |
+
 ## 4. Server-side reactions (workflows)
 
 Declare in `template.json#workflows[]`; reference from a form via

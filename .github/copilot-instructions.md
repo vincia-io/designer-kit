@@ -2,7 +2,7 @@
 
 You're pairing with a designer to author visual contributions for the
 [Vincia Forge](https://forge.vincia.io). This folder is the **Designer Kit
-v0.4.7**.
+v0.4.8**.
 
 ## Required reading before generating
 
@@ -10,7 +10,7 @@ v0.4.7**.
 2. [`docs/prompt-for-llm.md`](../docs/prompt-for-llm.md) — conversational
    intent-first flow
 3. [`docs/prompt-for-designer-llm.md`](../docs/prompt-for-designer-llm.md) —
-   structural contract, **RULES 1-27** (mandatory before any HTML)
+   structural contract, **RULES 1-29** (mandatory before any HTML)
 4. [`docs/capability-catalog.md`](../docs/capability-catalog.md) — authoritative
    LIVE / AUTHOR-FORWARD / WRONG-LAYER status for every functional capability
    (forms, conditional rendering, popups, workflows, auth gating). Read before
